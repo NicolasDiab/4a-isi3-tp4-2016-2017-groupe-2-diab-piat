@@ -12,7 +12,7 @@ Vous trouverez dans le dossier ISI3 de Spiral :
 
 ## Refactoring du code et MVC
 
-On vous fournit trois classes dont un programme principal dans la classe **SimpleLogo**.
+On vous fournit trois classes dont un programme principal dans la classe **tortue.SimpleLogo**.
 
 #### Question 1
 
@@ -25,7 +25,7 @@ On vous fournit trois classes dont un programme principal dans la classe **Simpl
  fonctionnalités**.
 
 On souhaite obtenir une version simplifiée, qui permet simplement de commander une
-Tortue dans ses déplacements (avant, arrière, droite, gauche) avec les boutons de l’IHM
+tortue.model.Tortue dans ses déplacements (avant, arrière, droite, gauche) avec les boutons de l’IHM
 mais **sans affichage de la trace laissée au fur et à mesure du parcours** (cette
 fonctionnalité pourra être supprimée lors du *refactoring*).
 

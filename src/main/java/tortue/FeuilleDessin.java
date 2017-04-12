@@ -1,4 +1,6 @@
-// package logo;
+package tortue;// package logo;
+
+import tortue.model.Tortue;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +9,7 @@ import java.util.Iterator;
 
 /**
  * Titre :        Logo
- * Description :  Un exemple de programme graphique utilisant la celebre Tortue Logo
+ * Description :  Un exemple de programme graphique utilisant la celebre tortue.model.Tortue Logo
  * Copyright :    Copyright (c) 2000
  * Societe :      LIRMM
  * @author J. Ferber
