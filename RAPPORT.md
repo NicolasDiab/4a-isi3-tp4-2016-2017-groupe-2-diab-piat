@@ -9,6 +9,8 @@
 *Diagramme de classe reconstitué avec IntelliJ*
 ![diagram](images/diagramDeBase.png)
 
+Dans cette version de l'application, nous avons remarqué que la vue et le contrôleur sont fusionnés dans la classe SimpleLogo.
+
 ## Question 2
 *Rien à rédiger*
 
