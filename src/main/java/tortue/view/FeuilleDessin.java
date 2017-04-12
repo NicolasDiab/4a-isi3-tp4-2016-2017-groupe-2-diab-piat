@@ -62,7 +62,7 @@ public class FeuilleDessin extends JPanel {
 		// Dessine les segments
 		for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
 			Segment seg = (Segment) it.next();
-			seg.drawSegment(graph);
+			this.drawSegment(seg, graph);
 		}
 
 		//Calcule les 3 coins du triangle a partir de
@@ -93,5 +93,13 @@ public class FeuilleDessin extends JPanel {
 		arrow.addPoint(p2.x, p2.y);
 		graph.setColor(Color.green);
 		graph.fillPolygon(arrow);
+	}
+
+	public void drawSegment(Segment segment, Graphics graph) {
+		if (graph == null)
+			return;
+
+		graph.setColor(segment.color);
+		graph.drawLine(segment.ptStart.x, segment.ptStart.y, segment.ptEnd.x, segment.ptEnd.y);
 	}
 }
