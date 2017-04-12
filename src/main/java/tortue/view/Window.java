@@ -5,9 +5,7 @@ import tortue.model.Tortue;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
 public class Window extends JFrame {
 
@@ -23,12 +21,19 @@ public class Window extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-
                 Window window = new Window();
-                window.setVisible(true);
-                window.setController(new SimpleLogo(this));
             }
         });
+
+    }
+
+    public Window(){
+
+        super("un logo tout simple");
+        this.setVisible(true);
+        this.setController(new SimpleLogo(this));
+
+        logoInit();
 
     }
 
