@@ -21,8 +21,6 @@ import java.util.Iterator;
 
 public class Tortue {
 
-
-
     protected static final int rp = 10, rb = 5; // Taille de la pointe et de la base de la fleche
     protected static final double ratioDegRad = 0.0174533; // Rapport radians/degres (pour la conversion)
 
