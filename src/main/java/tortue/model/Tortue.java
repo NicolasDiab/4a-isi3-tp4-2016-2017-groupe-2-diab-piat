@@ -2,7 +2,6 @@ package tortue.model;// package logo;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 /*************************************************************************
@@ -20,82 +19,55 @@ import java.util.Iterator;
 
 
 public class Tortue {
+    private static final int rp = 10;
+    private static final int rb = 5; // Taille de la pointe et de la base de la fleche
+    private static final double ratioDegRad = 0.0174533; // Rapport radians/degres (pour la conversion)
 
-    protected static final int rp = 10, rb = 5; // Taille de la pointe et de la base de la fleche
-    protected static final double ratioDegRad = 0.0174533; // Rapport radians/degres (pour la conversion)
+    private ArrayList<Segment> listSegments; // Trace de la tortue
 
-    protected ArrayList<Segment> listSegments; // Trace de la tortue
+    private int x;
+    private int y;
+    private int dir;
+    private boolean crayon;
+    private int coul;
 
-    protected int x, y;
-    protected int dir;
-    protected boolean crayon;
-    protected int coul;
+    public static int getRp() {
+        return rp;
+    }
+
+    public static int getRb() {
+        return rb;
+    }
+
+    public static double getRatioDegRad() {
+        return ratioDegRad;
+    }
 
     public void setColor(int n) {
-        coul = n;
+        setCoul(n);
     }
 
     public int getColor() {
-        return coul;
+        return getCoul();
     }
 
     public Tortue() {
-        listSegments = new ArrayList<Segment>();
+        setListSegments(new ArrayList<Segment>());
         reset();
     }
 
     public void reset() {
-        x = 0;
-        y = 0;
-        dir = -90;
-        coul = 0;
-        crayon = true;
-        listSegments.clear();
+        setX(0);
+        setY(0);
+        setDir(-90);
+        setCoul(0);
+        setCrayon(true);
+        getListSegments().clear();
     }
 
     public void setPosition(int newX, int newY) {
-        x = newX;
-        y = newY;
-    }
-
-    public void drawTurtle(Graphics graph) {
-        if (graph == null)
-            return;
-
-        // Dessine les segments
-        for (Iterator it = listSegments.iterator(); it.hasNext(); ) {
-            Segment seg = (Segment) it.next();
-            seg.drawSegment(graph);
-        }
-
-        //Calcule les 3 coins du triangle a partir de
-        // la position de la tortue p
-        Point p = new Point(x, y);
-        Polygon arrow = new Polygon();
-
-        //Calcule des deux bases
-        //Angle de la droite
-        double theta = ratioDegRad * (-dir);
-        //Demi angle au sommet du triangle
-        double alpha = Math.atan((float) rb / (float) rp);
-        //Rayon de la fleche
-        double r = Math.sqrt(rp * rp + rb * rb);
-        //Sens de la fleche
-
-        //Pointe
-        Point p2 = new Point((int) Math.round(p.x + r * Math.cos(theta)),
-                (int) Math.round(p.y - r * Math.sin(theta)));
-        arrow.addPoint(p2.x, p2.y);
-        arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta + alpha)),
-                (int) Math.round(p2.y + r * Math.sin(theta + alpha)));
-
-        //Base2
-        arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta - alpha)),
-                (int) Math.round(p2.y + r * Math.sin(theta - alpha)));
-
-        arrow.addPoint(p2.x, p2.y);
-        graph.setColor(Color.green);
-        graph.fillPolygon(arrow);
+        setX(newX);
+        setY(newY);
     }
 
     protected Color decodeColor(int c) {
@@ -130,47 +102,47 @@ public class Tortue {
     }
 
     public void avancer(int dist) {
-        int newX = (int) Math.round(x + dist * Math.cos(ratioDegRad * dir));
-        int newY = (int) Math.round(y + dist * Math.sin(ratioDegRad * dir));
+        int newX = (int) Math.round(getX() + dist * Math.cos(getRatioDegRad() * getDir()));
+        int newY = (int) Math.round(getY() + dist * Math.sin(getRatioDegRad() * getDir()));
 
-        if (crayon == true) {
+        if (isCrayon() == true) {
             Segment seg = new Segment();
 
-            seg.ptStart.x = x;
-            seg.ptStart.y = y;
+            seg.ptStart.x = getX();
+            seg.ptStart.y = getY();
             seg.ptEnd.x = newX;
             seg.ptEnd.y = newY;
-            seg.color = decodeColor(coul);
+            seg.color = decodeColor(getCoul());
 
-            listSegments.add(seg);
+            getListSegments().add(seg);
         }
 
-        x = newX;
-        y = newY;
+        setX(newX);
+        setY(newY);
     }
 
     public void droite(int ang) {
-        dir = (dir + ang) % 360;
+        setDir((getDir() + ang) % 360);
     }
 
     public void gauche(int ang) {
-        dir = (dir - ang) % 360;
+        setDir((getDir() - ang) % 360);
     }
 
     public void baisserCrayon() {
-        crayon = true;
+        setCrayon(true);
     }
 
     public void leverCrayon() {
-        crayon = false;
+        setCrayon(false);
     }
 
     public void couleur(int n) {
-        coul = n % 12;
+        setCoul(n % 12);
     }
 
     public void couleurSuivante() {
-        couleur(coul + 1);
+        couleur(getCoul() + 1);
     }
 
     /**
@@ -196,10 +168,59 @@ public class Tortue {
     /* PROC 3 */
     public void spiral(int n, int k, int a) {
         for (int i = 0; i < k; i++) {
-            couleur(coul + 1);
+            couleur(getCoul() + 1);
             avancer(n);
             droite(360 / a);
             n = n + 1;
         }
+    }
+
+
+    public ArrayList<Segment> getListSegments() {
+        return listSegments;
+    }
+
+    public void setListSegments(ArrayList<Segment> listSegments) {
+        this.listSegments = listSegments;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getDir() {
+        return dir;
+    }
+
+    public void setDir(int dir) {
+        this.dir = dir;
+    }
+
+    public boolean isCrayon() {
+        return crayon;
+    }
+
+    public void setCrayon(boolean crayon) {
+        this.crayon = crayon;
+    }
+
+    public int getCoul() {
+        return coul;
+    }
+
+    public void setCoul(int coul) {
+        this.coul = coul;
     }
 }

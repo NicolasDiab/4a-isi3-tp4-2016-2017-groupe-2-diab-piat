@@ -2,7 +2,7 @@ package tortue.model;
 
 import java.awt.*;
 
-class Segment {
+public class Segment {
     public Point ptStart, ptEnd;
     public Color color;
 
