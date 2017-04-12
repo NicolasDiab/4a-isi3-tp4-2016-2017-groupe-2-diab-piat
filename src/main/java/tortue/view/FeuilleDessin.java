@@ -1,4 +1,4 @@
-package tortue.view;// package logo;
+package tortue.view;
 
 import tortue.model.Segment;
 import tortue.model.Tortue;
