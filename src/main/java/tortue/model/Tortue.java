@@ -145,35 +145,6 @@ public class Tortue {
         couleur(getCoul() + 1);
     }
 
-    /**
-     * quelques classiques
-     */
-
-    /* PROC 1 */
-    public void carre() {
-        for (int i = 0; i < 4; i++) {
-            avancer(100);
-            droite(90);
-        }
-    }
-
-    /* PROC 2 */
-    public void poly(int n, int a) {
-        for (int j = 0; j < a; j++) {
-            avancer(n);
-            droite(360 / a);
-        }
-    }
-
-    /* PROC 3 */
-    public void spiral(int n, int k, int a) {
-        for (int i = 0; i < k; i++) {
-            couleur(getCoul() + 1);
-            avancer(n);
-            droite(360 / a);
-            n = n + 1;
-        }
-    }
 
 
     public ArrayList<Segment> getListSegments() {

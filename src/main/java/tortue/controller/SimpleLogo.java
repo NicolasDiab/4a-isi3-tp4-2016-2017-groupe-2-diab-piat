@@ -1,6 +1,9 @@
 package tortue.controller;// package logo;
 
 import tortue.model.Tortue;
+import tortue.model.shapes.Poly;
+import tortue.model.shapes.Spiral;
+import tortue.model.shapes.Square;
 import tortue.view.FeuilleDessin;
 
 import javax.swing.*;
@@ -222,17 +225,19 @@ public class SimpleLogo extends JFrame implements ActionListener {
 		feuille.repaint();
 	}
 
-  	/** les procedures Logo qui combine plusieurs commandes..*/
+  	/** les procedures Logo qui combinent plusieurs commandes..*/
+
+  	/* Square */
 	public void proc1() {
-		courante.carre();
+		new Square(courante);
 	}
-
+  	/* Poly */
 	public void proc2() {
-		courante.poly(60,8);
+		new Poly(courante, 60, 8);
 	}
-
+  	/* Spiral */
 	public void proc3() {
-		courante.spiral(50,40,6);
+		new Spiral(courante, 50,40,6);
 	}
 
 	// efface tout et reinitialise la feuille
