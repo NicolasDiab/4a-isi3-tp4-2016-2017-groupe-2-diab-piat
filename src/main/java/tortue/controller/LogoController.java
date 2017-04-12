@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
  **************************************************************************/
 
 
-public class SimpleLogo implements ActionListener {
+public class LogoController implements ActionListener {
     private FeuilleDessin feuille;
     private Tortue courante;
     private Window window;
@@ -37,7 +37,7 @@ public class SimpleLogo implements ActionListener {
         System.exit(0);
     }
 
-    public SimpleLogo(Window window) {
+    public LogoController(Window window) {
         this.setWindow(window);
     }
 

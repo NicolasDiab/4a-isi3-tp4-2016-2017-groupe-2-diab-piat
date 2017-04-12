@@ -1,6 +1,6 @@
 package tortue.view;
 
-import tortue.controller.SimpleLogo;
+import tortue.controller.LogoController;
 import tortue.model.Tortue;
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ public class Window extends JFrame {
 
     private static final Dimension VGAP = new Dimension(1, 5);
     private static final Dimension HGAP = new Dimension(5, 1);
-    private SimpleLogo controller;
+    private LogoController controller;
 
     private JTextField inputValue;
 
@@ -31,7 +31,7 @@ public class Window extends JFrame {
 
         super("un logo tout simple");
         this.setVisible(true);
-        this.setController(new SimpleLogo(this));
+        this.setController(new LogoController(this));
 
         logoInit();
 
@@ -54,11 +54,11 @@ public class Window extends JFrame {
     }
 
 
-    public SimpleLogo getController() {
+    public LogoController getController() {
         return controller;
     }
 
-    public void setController(SimpleLogo controller) {
+    public void setController(LogoController controller) {
         this.controller = controller;
     }
 
