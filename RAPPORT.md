@@ -1,6 +1,6 @@
-**Nom/Prénom Etudiant 1 :**
+**Nom/Prénom Etudiant 1 :** DIAB Nicolas
 
-**Nom/Prénom Etudiant 2 :**
+**Nom/Prénom Etudiant 2 :** PIAT Grégoire
 
 # Rapport TP4
 
