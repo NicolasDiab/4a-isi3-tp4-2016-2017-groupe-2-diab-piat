@@ -1,6 +1,7 @@
-package tortue;// package logo;
+package tortue.controller;// package logo;
 
 import tortue.model.Tortue;
+import tortue.view.FeuilleDessin;
 
 import javax.swing.*;
 import java.awt.*;

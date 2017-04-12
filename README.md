@@ -12,7 +12,7 @@ Vous trouverez dans le dossier ISI3 de Spiral :
 
 ## Refactoring du code et MVC
 
-On vous fournit trois classes dont un programme principal dans la classe **tortue.SimpleLogo**.
+On vous fournit trois classes dont un programme principal dans la classe **tortue.controller.SimpleLogo**.
 
 #### Question 1
 
