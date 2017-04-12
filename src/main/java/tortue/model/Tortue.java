@@ -2,6 +2,7 @@ package tortue.model;// package logo;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Observable;
 
 
 /*************************************************************************
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  **************************************************************************/
 
 
-public class Tortue {
+public class Tortue extends Observable{
     private static final int rp = 10;
     private static final int rb = 5; // Taille de la pointe et de la base de la fleche
     private static final double ratioDegRad = 0.0174533; // Rapport radians/degres (pour la conversion)
@@ -54,6 +55,8 @@ public class Tortue {
     public Tortue() {
         setListSegments(new ArrayList<Segment>());
         reset();
+        setChanged();
+        notifyObservers();
     }
 
     public void reset() {
@@ -152,6 +155,8 @@ public class Tortue {
 
     public void setListSegments(ArrayList<Segment> listSegments) {
         this.listSegments = listSegments;
+        setChanged();
+        notifyObservers();
     }
 
     public int getX() {
@@ -160,6 +165,8 @@ public class Tortue {
 
     public void setX(int x) {
         this.x = x;
+        setChanged();
+        notifyObservers();
     }
 
     public int getY() {
@@ -168,6 +175,8 @@ public class Tortue {
 
     public void setY(int y) {
         this.y = y;
+        setChanged();
+        notifyObservers();
     }
 
     public int getDir() {
@@ -176,6 +185,8 @@ public class Tortue {
 
     public void setDir(int dir) {
         this.dir = dir;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean isCrayon() {
@@ -184,6 +195,8 @@ public class Tortue {
 
     public void setCrayon(boolean crayon) {
         this.crayon = crayon;
+        setChanged();
+        notifyObservers();
     }
 
     public int getCoul() {
@@ -192,5 +205,7 @@ public class Tortue {
 
     public void setCoul(int coul) {
         this.coul = coul;
+        setChanged();
+        notifyObservers();
     }
 }

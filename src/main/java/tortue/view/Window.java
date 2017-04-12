@@ -6,15 +6,17 @@ import tortue.model.Tortue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Window extends JFrame {
+public class Window extends JFrame implements Observer {
 
     private static final Dimension VGAP = new Dimension(1, 5);
     private static final Dimension HGAP = new Dimension(5, 1);
     private LogoController controller;
 
     private JTextField inputValue;
-
     /**
      * @param args
      */
@@ -118,7 +120,7 @@ public class Window extends JFrame {
         addButton(toolBar, "Gauche", "Gauche 45", null);
         addButton(toolBar, "Lever", "Lever Crayon", null);
         addButton(toolBar, "Baisser", "Baisser Crayon", null);
-        addButton(toolBar, "addTurtle", "Add turtle", null);
+        addButton(toolBar, "Add Turtle", "Add turtle", null);
 
         String[] colorStrings = {"noir", "bleu", "cyan", "gris fonce", "rouge",
                 "vert", "gris clair", "magenta", "orange",
@@ -172,14 +174,9 @@ public class Window extends JFrame {
         getContentPane().add(p2, "South");
 
         // feuille
-        FeuilleDessin feuille = new FeuilleDessin(); //500, 400);
-        feuille.setBackground(Color.white);
-        feuille.setSize(new Dimension(600, 400));
-        feuille.setPreferredSize(new Dimension(600, 400));
+        FeuilleDessin feuille = getController().generateFeuille();
 
         Tortue turtle = getController().generateTurtle();
-
-
 
 
         this.getController().setCourante(turtle);
@@ -190,5 +187,10 @@ public class Window extends JFrame {
 
         pack();
         setVisible(true);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        repaint();
     }
 }

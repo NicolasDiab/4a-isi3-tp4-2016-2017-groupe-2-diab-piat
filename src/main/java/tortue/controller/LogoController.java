@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 /*************************************************************************
@@ -33,12 +34,16 @@ public class LogoController implements ActionListener {
     private Tortue courante;
     private Window window;
 
+    private ArrayList turtles;
+
+
     private void quitter() {
         System.exit(0);
     }
 
     public LogoController(Window window) {
         this.setWindow(window);
+        turtles = new ArrayList<Tortue>();
     }
 
     public String getInputValueString() {
@@ -102,6 +107,9 @@ public class LogoController implements ActionListener {
                 case "Quitter":
                     quitter();
                     break;
+                case "Add Turtle":
+                    addTurle();
+                    break;
             }
 
             getWindow().repaint();
@@ -149,6 +157,22 @@ public class LogoController implements ActionListener {
         turtle.setPosition(500 / 2, 400 / 2);
 
         return turtle;
+    }
+
+    public void addTurle(){
+        feuille.addTortue(generateTurtle());
+        getWindow().repaint();
+    }
+
+
+    public FeuilleDessin generateFeuille(){
+
+        FeuilleDessin feuille = new FeuilleDessin(); //500, 400);
+        feuille.setBackground(Color.white);
+        feuille.setSize(new Dimension(600, 400));
+        feuille.setPreferredSize(new Dimension(600, 400));
+
+        return feuille;
     }
 
 
