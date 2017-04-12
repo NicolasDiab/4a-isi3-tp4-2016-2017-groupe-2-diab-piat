@@ -161,7 +161,6 @@ public class LogoController implements ActionListener {
 
     public void addTurle(){
         feuille.addTortue(generateTurtle());
-        getWindow().repaint();
     }
 
 
