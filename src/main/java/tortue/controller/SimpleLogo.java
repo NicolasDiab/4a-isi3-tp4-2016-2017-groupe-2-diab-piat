@@ -180,47 +180,54 @@ public class SimpleLogo extends JFrame implements ActionListener {
 		String c = e.getActionCommand();
 
 		// actions des boutons du haut
-		if (c.equals("Avancer")) {
-			System.out.println("command avancer");
-			try {
-				int v = Integer.parseInt(inputValue.getText());
-				courante.avancer(v);
-			} catch (NumberFormatException ex){
-				System.err.println("ce n'est pas un nombre : " + inputValue.getText());
-			}
-			
+		switch (c) {
+			case "Avancer":
+				System.out.println("command avancer");
+				try {
+					int v = Integer.parseInt(inputValue.getText());
+					courante.avancer(v);
+				} catch (NumberFormatException ex){
+					System.err.println("ce n'est pas un nombre : " + inputValue.getText());
+				}
+				break;
+			case "Droite":
+				try {
+					int v = Integer.parseInt(inputValue.getText());
+					courante.droite(v);
+				} catch (NumberFormatException ex){
+					System.err.println("ce n'est pas un nombre : " + inputValue.getText());
+				}
+				break;
+			case "Gauche":
+				try {
+					int v = Integer.parseInt(inputValue.getText());
+					courante.gauche(v);
+				} catch (NumberFormatException ex){
+					System.err.println("ce n'est pas un nombre : " + inputValue.getText());
+				}
+				break;
+			case "Lever":
+				courante.leverCrayon();
+				break;
+			case "Baisser":
+				courante.baisserCrayon();
+				// actions des boutons du bas
+			case "Proc1":
+				proc1();
+				break;
+			case "Proc2":
+				proc2();
+				break;
+			case "Proc3":
+				proc3();
+				break;
+			case "Effacer":
+				effacer();
+				break;
+			case "Quitter":
+				quitter();
+				break;
 		}
-		else if (c.equals("Droite")) {
-			try {
-				int v = Integer.parseInt(inputValue.getText());
-				courante.droite(v);
-			} catch (NumberFormatException ex){
-				System.err.println("ce n'est pas un nombre : " + inputValue.getText());
-			}
-		}
-		else if (c.equals("Gauche")) {
-			try {
-				int v = Integer.parseInt(inputValue.getText());
-				courante.gauche(v);
-			} catch (NumberFormatException ex){
-				System.err.println("ce n'est pas un nombre : " + inputValue.getText());
-			}
-		}
-		else if (c.equals("Lever")) 
-			courante.leverCrayon();
-		else if (c.equals("Baisser"))
-			courante.baisserCrayon();
-		// actions des boutons du bas
-		else if (c.equals("Proc1"))
-			proc1();
-		else if (c.equals("Proc2"))
-			proc2();
-		else if (c.equals("Proc3"))
-			proc3();
-		else if (c.equals("Effacer"))
-			effacer();
-		else if (c.equals("Quitter"))
-			quitter();
 
 		feuille.repaint();
 	}
