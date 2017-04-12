@@ -144,6 +144,13 @@ public class LogoController implements ActionListener {
         getCourante().setPosition(size.width / 2, size.height / 2);
     }
 
+    public Tortue generateTurtle(){
+        Tortue turtle = new Tortue();
+        turtle.setPosition(500 / 2, 400 / 2);
+
+        return turtle;
+    }
+
 
     public FeuilleDessin getFeuille() {
         return feuille;

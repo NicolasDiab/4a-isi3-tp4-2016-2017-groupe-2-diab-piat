@@ -118,6 +118,7 @@ public class Window extends JFrame {
         addButton(toolBar, "Gauche", "Gauche 45", null);
         addButton(toolBar, "Lever", "Lever Crayon", null);
         addButton(toolBar, "Baisser", "Baisser Crayon", null);
+        addButton(toolBar, "addTurtle", "Add turtle", null);
 
         String[] colorStrings = {"noir", "bleu", "cyan", "gris fonce", "rouge",
                 "vert", "gris clair", "magenta", "orange",
@@ -176,14 +177,13 @@ public class Window extends JFrame {
         feuille.setSize(new Dimension(600, 400));
         feuille.setPreferredSize(new Dimension(600, 400));
 
-        // Creation de la tortue
-        Tortue tortue = new Tortue();
+        Tortue turtle = getController().generateTurtle();
 
-        // Deplacement de la tortue au centre de la feuille
-        tortue.setPosition(500 / 2, 400 / 2);
 
-        this.getController().setCourante(tortue);
-        feuille.addTortue(tortue);
+
+
+        this.getController().setCourante(turtle);
+        feuille.addTortue(turtle);
 
         this.getController().setFeuille(feuille);
         getContentPane().add(this.controller.getFeuille(), "Center");

@@ -146,7 +146,6 @@ public class Tortue {
     }
 
 
-
     public ArrayList<Segment> getListSegments() {
         return listSegments;
     }

@@ -13,93 +13,94 @@ import java.util.Iterator;
  * Description :  Un exemple de programme graphique utilisant la celebre tortue.model.Tortue Logo
  * Copyright :    Copyright (c) 2000
  * Societe :      LIRMM
+ *
  * @author J. Ferber
  * @version 2.0
  */
 
 public class FeuilleDessin extends JPanel {
-	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
-	
-	public FeuilleDessin() {
-		tortues = new ArrayList<Tortue>();
-	}
+    private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
 
-	public void addTortue(Tortue o) {
-		tortues.add(o);
-	}
+    public FeuilleDessin() {
+        tortues = new ArrayList<Tortue>();
+    }
 
-	public void reset() {
-		for (Iterator it = tortues.iterator();it.hasNext();) {
-			Tortue t = (Tortue) it.next();
-			t.reset();
-		}
-	}
+    public void addTortue(Tortue o) {
+        tortues.add(o);
+    }
 
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+    public void reset() {
+        for (Iterator it = tortues.iterator(); it.hasNext(); ) {
+            Tortue t = (Tortue) it.next();
+            t.reset();
+        }
+    }
 
-		Color c = g.getColor();
-		
-		Dimension dim = getSize();
-		g.setColor(Color.white);
-		g.fillRect(0,0,dim.width, dim.height);
-		g.setColor(c);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-		showTurtles(g);
-	}
-	
-	public void showTurtles(Graphics g) {
-		for(Iterator it = tortues.iterator();it.hasNext();) {
-			Tortue t = (Tortue) it.next();
-			this.drawTurtle(t, g);
-		}
-	}
+        Color c = g.getColor();
 
-	public void drawTurtle(Tortue tortue, Graphics graph) {
-		if (graph == null)
-			return;
+        Dimension dim = getSize();
+        g.setColor(Color.white);
+        g.fillRect(0, 0, dim.width, dim.height);
+        g.setColor(c);
 
-		// Dessine les segments
-		for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
-			Segment seg = (Segment) it.next();
-			this.drawSegment(seg, graph);
-		}
+        showTurtles(g);
+    }
 
-		//Calcule les 3 coins du triangle a partir de
-		// la position de la tortue p
-		Point p = new Point(tortue.getX(), tortue.getY());
-		Polygon arrow = new Polygon();
+    public void showTurtles(Graphics g) {
+        for (Iterator it = tortues.iterator(); it.hasNext(); ) {
+            Tortue t = (Tortue) it.next();
+            this.drawTurtle(t, g);
+        }
+    }
 
-		//Calcule des deux bases
-		//Angle de la droite
-		double theta = tortue.getRatioDegRad() * (-tortue.getDir());
-		//Demi angle au sommet du triangle
-		double alpha = Math.atan((float) tortue.getRb() / (float) tortue.getRp());
-		//Rayon de la fleche
-		double r = Math.sqrt(tortue.getRp() * tortue.getRp() + tortue.getRb() * tortue.getRb());
-		//Sens de la fleche
+    public void drawTurtle(Tortue tortue, Graphics graph) {
+        if (graph == null)
+            return;
 
-		//Pointe
-		Point p2 = new Point((int) Math.round(p.x + r * Math.cos(theta)),
-				(int) Math.round(p.y - r * Math.sin(theta)));
-		arrow.addPoint(p2.x, p2.y);
-		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta + alpha)),
-				(int) Math.round(p2.y + r * Math.sin(theta + alpha)));
+        // Dessine les segments
+        for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
+            Segment seg = (Segment) it.next();
+            this.drawSegment(seg, graph);
+        }
 
-		//Base2
-		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta - alpha)),
-				(int) Math.round(p2.y + r * Math.sin(theta - alpha)));
+        //Calcule les 3 coins du triangle a partir de
+        // la position de la tortue p
+        Point p = new Point(tortue.getX(), tortue.getY());
+        Polygon arrow = new Polygon();
 
-		arrow.addPoint(p2.x, p2.y);
-		graph.setColor(Color.green);
-		graph.fillPolygon(arrow);
-	}
+        //Calcule des deux bases
+        //Angle de la droite
+        double theta = tortue.getRatioDegRad() * (-tortue.getDir());
+        //Demi angle au sommet du triangle
+        double alpha = Math.atan((float) tortue.getRb() / (float) tortue.getRp());
+        //Rayon de la fleche
+        double r = Math.sqrt(tortue.getRp() * tortue.getRp() + tortue.getRb() * tortue.getRb());
+        //Sens de la fleche
 
-	public void drawSegment(Segment segment, Graphics graph) {
-		if (graph == null)
-			return;
+        //Pointe
+        Point p2 = new Point((int) Math.round(p.x + r * Math.cos(theta)),
+                (int) Math.round(p.y - r * Math.sin(theta)));
+        arrow.addPoint(p2.x, p2.y);
+        arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta + alpha)),
+                (int) Math.round(p2.y + r * Math.sin(theta + alpha)));
 
-		graph.setColor(segment.color);
-		graph.drawLine(segment.ptStart.x, segment.ptStart.y, segment.ptEnd.x, segment.ptEnd.y);
-	}
+        //Base2
+        arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta - alpha)),
+                (int) Math.round(p2.y + r * Math.sin(theta - alpha)));
+
+        arrow.addPoint(p2.x, p2.y);
+        graph.setColor(Color.green);
+        graph.fillPolygon(arrow);
+    }
+
+    public void drawSegment(Segment segment, Graphics graph) {
+        if (graph == null)
+            return;
+
+        graph.setColor(segment.color);
+        graph.drawLine(segment.ptStart.x, segment.ptStart.y, segment.ptEnd.x, segment.ptEnd.y);
+    }
 }
