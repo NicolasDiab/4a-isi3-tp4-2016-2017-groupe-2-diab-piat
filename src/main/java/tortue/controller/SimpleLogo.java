@@ -30,28 +30,13 @@ import java.awt.event.WindowEvent;
 **************************************************************************/
 
 
-public class SimpleLogo extends JFrame implements ActionListener {
+public class SimpleLogo extends JFrame {
 	public static final Dimension VGAP = new Dimension(1,5);
 	public static final Dimension HGAP = new Dimension(5,1);
 
 	private FeuilleDessin feuille;
 	private Tortue courante;
 	private JTextField inputValue;
-
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		   SwingUtilities.invokeLater(new Runnable(){
-				public void run(){
-
-					SimpleLogo fenetre = new SimpleLogo();
-					fenetre.setVisible(true);
-				}
-			});
-			
-		}
 	
 	private void quitter() {
 		System.exit(0);
@@ -174,11 +159,7 @@ public class SimpleLogo extends JFrame implements ActionListener {
 		return(s);
 	}
 
-	/** la gestion des actions des boutons */
-	public void actionPerformed(ActionEvent e)
-	{
-		String c = e.getActionCommand();
-
+	public void manageAction(String c){
 		// actions des boutons du haut
 		switch (c) {
 			case "Avancer":
