@@ -155,7 +155,10 @@ public class LogoController implements ActionListener, Observer {
     }
 
     public void addTurle(){
-        getFeuille().addTortue(generateTurtle());
+        Tortue turtle = generateTurtle();
+        getFeuille().addTortue(turtle);
+
+        turtle.setColor(this.getCourante().getColor()); // default color is currently selected color
     }
 
 
