@@ -175,6 +175,15 @@ public class Window extends JFrame implements Observer {
 
         // feuille
         FeuilleDessin feuille = getController().generateFeuille();
+        // bouton gauche de clic sur la feuille
+        feuille.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    getController().changeCurrentTurtle(e.getX(), e.getY());
+                }
+            }
+        });
 
         Tortue turtle = getController().generateTurtle();
 

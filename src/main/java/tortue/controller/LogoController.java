@@ -145,6 +145,23 @@ public class LogoController implements ActionListener, Observer {
         getCourante().setPosition(size.width / 2, size.height / 2);
     }
 
+    public void changeCurrentTurtle(double clicX, double clicY) {
+        System.out.println("x:" + clicX + " y:"+ clicY);
+
+        // click has a 20-pixel precision
+        int precision = 25;
+
+        for (Tortue tortue : this.getTurtles()) {
+            if (tortue.getX() <= clicX + precision && tortue.getX() >= clicX - precision &&
+                    tortue.getY() <= clicY + precision && tortue.getY() >= clicY - precision) {
+                System.out.println("Changement de tortue courant !");
+                System.out.println("nouvelle tortue: x=" + tortue.getX() + " y="+ tortue.getY());
+                this.setCourante(tortue);
+                break;
+            }
+        }
+    }
+
     public Tortue generateTurtle(){
         Tortue turtle = new Tortue();
         turtle.addObserver(this);
@@ -156,7 +173,8 @@ public class LogoController implements ActionListener, Observer {
 
     public void addTurle(){
         Tortue turtle = generateTurtle();
-        getFeuille().addTortue(turtle);
+        this.getFeuille().addTortue(turtle);
+        this.getTurtles().add(turtle);
 
         turtle.setColor(this.getCourante().getColor()); // default color is currently selected color
     }
