@@ -19,7 +19,7 @@ import java.util.Observable;
  **************************************************************************/
 
 
-public class Tortue extends Observable{
+public class Tortue extends Observable {
     private static final int rp = 10;
     private static final int rb = 5; // Taille de la pointe et de la base de la fleche
     private static final double ratioDegRad = 0.0174533; // Rapport radians/degres (pour la conversion)

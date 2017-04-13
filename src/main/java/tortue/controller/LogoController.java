@@ -12,6 +12,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 
 /*************************************************************************
@@ -29,12 +32,12 @@ import java.util.ArrayList;
  **************************************************************************/
 
 
-public class LogoController implements ActionListener {
+public class LogoController implements ActionListener, Observer {
     private FeuilleDessin feuille;
     private Tortue courante;
     private Window window;
 
-    private ArrayList turtles;
+    private List<Tortue> turtles;
 
 
     private void quitter() {
@@ -43,7 +46,7 @@ public class LogoController implements ActionListener {
 
     public LogoController(Window window) {
         this.setWindow(window);
-        turtles = new ArrayList<Tortue>();
+        this.setTurtles(new ArrayList<>());
     }
 
     public String getInputValueString() {
@@ -111,16 +114,7 @@ public class LogoController implements ActionListener {
                     addTurle();
                     break;
             }
-
-            getWindow().repaint();
         }
-    }
-
-    public void manageAction(String c) {
-        // actions des boutons du haut
-
-
-        getFeuille().repaint();
     }
 
     /**
@@ -145,7 +139,6 @@ public class LogoController implements ActionListener {
     // efface tout et reinitialise la feuille
     public void effacer() {
         getFeuille().reset();
-        getFeuille().repaint();
 
         // Replace la tortue au centre
         Dimension size = getFeuille().getSize();
@@ -154,14 +147,15 @@ public class LogoController implements ActionListener {
 
     public Tortue generateTurtle(){
         Tortue turtle = new Tortue();
+        turtle.addObserver(this);
         turtle.setPosition(500 / 2, 400 / 2);
+        this.getTurtles().add(turtle);
 
         return turtle;
     }
 
     public void addTurle(){
-        feuille.addTortue(generateTurtle());
-        getWindow().repaint();
+        getFeuille().addTortue(generateTurtle());
     }
 
 
@@ -198,5 +192,20 @@ public class LogoController implements ActionListener {
 
     public void setWindow(Window window) {
         this.window = window;
+    }
+
+
+
+    @Override
+    public void update(Observable o, Object arg) {
+        this.getWindow().repaint();
+    }
+
+    public List<Tortue> getTurtles() {
+        return turtles;
+    }
+
+    public void setTurtles(List<Tortue> turtles) {
+        this.turtles = turtles;
     }
 }
