@@ -6,13 +6,16 @@
 
 ## Question 1
 
-*Diagramme de classe reconstitué avec IntelliJ*
+*Diagramme de classe avant refactoring (reconstitué avec IntelliJ)*
 ![diagram](images/diagramDeBase.png)
 
 Dans cette version de l'application, nous avons remarqué que la vue et le contrôleur sont fusionnés dans la classe tortue.controller.LogoController.
 
 ## Question 2
 *Rien à rédiger*
+
+*Diagramme de classe après refactoring (reconstitué avec IntelliJ)*
+![diagram](images/diagramApresRefactor.png)
 
 ## Question 3
 *Rien à rédiger*
