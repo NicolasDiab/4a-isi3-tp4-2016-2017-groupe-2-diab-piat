@@ -10,8 +10,6 @@ import java.util.List;
  * Created by Nicolas on 03/05/2017.
  */
 public abstract class BaseAgent implements Runnable {
-    private FeuilleDessin feuille;
-
     private List<Tortue> turtles;
 
     public final String ACTION_AVANCER = "Avancer";
@@ -27,14 +25,6 @@ public abstract class BaseAgent implements Runnable {
 
     public ArrayList<String> getActions() {
         return actions;
-    }
-
-    public FeuilleDessin getFeuille() {
-        return feuille;
-    }
-
-    public void setFeuille(FeuilleDessin feuille) {
-        this.feuille = feuille;
     }
 
     public List<Tortue> getTurtles() {

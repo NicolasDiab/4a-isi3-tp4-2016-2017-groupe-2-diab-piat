@@ -13,9 +13,8 @@ import java.util.Random;
  */
 public class AgentRandom extends BaseAgent {
 
-    public AgentRandom(List<Tortue> turtles, FeuilleDessin feuille) {
+    public AgentRandom(List<Tortue> turtles) {
         this.setTurtles(turtles);
-        this.setFeuille(feuille);
     }
 
 
@@ -40,8 +39,6 @@ public class AgentRandom extends BaseAgent {
                     turtle.gauche(45);
                     break;
             }
-
-            this.getFeuille().repaint();
 
             try {
                 Thread.sleep(100);

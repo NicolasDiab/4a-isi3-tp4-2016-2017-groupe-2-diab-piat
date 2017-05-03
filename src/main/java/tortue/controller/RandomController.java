@@ -18,7 +18,7 @@ public class RandomController extends TurtleController {
         super(window);
         this.addTurle();
 
-        this.agentRandom = new AgentRandom(this.getTurtles(), this.getFeuille());
+        this.agentRandom = new AgentRandom(this.getTurtles());
         Thread agent = new Thread(this.agentRandom);
         agent.start();
 
