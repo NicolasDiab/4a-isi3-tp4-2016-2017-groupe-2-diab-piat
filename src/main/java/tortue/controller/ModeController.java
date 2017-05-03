@@ -2,12 +2,9 @@ package tortue.controller;
 
 
 import tortue.view.ModeWindow;
-import tortue.view.Window;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Observable;
 
 public class ModeController implements ActionListener {

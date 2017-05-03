@@ -1,14 +1,9 @@
 package tortue.view;
 
-import tortue.controller.LogoController;
 import tortue.controller.ModeController;
-import tortue.model.Tortue;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 

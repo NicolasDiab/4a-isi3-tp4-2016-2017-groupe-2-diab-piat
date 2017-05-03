@@ -4,17 +4,11 @@ import tortue.model.Tortue;
 import tortue.model.shapes.Poly;
 import tortue.model.shapes.Spiral;
 import tortue.model.shapes.Square;
-import tortue.view.FeuilleDessin;
 import tortue.view.Window;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 
 /*************************************************************************
