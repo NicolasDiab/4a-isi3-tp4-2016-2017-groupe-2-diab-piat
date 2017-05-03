@@ -53,6 +53,7 @@ public class Tortue extends Observable {
     }
 
     public Tortue() {
+        this.setColor(0); // default color is black
         setListSegments(new ArrayList<Segment>());
         reset();
         setChanged();

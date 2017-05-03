@@ -39,12 +39,12 @@ public abstract class BaseController implements ActionListener, Observer {
         return turtle;
     }
 
-    public void addTurle(){
+    public Tortue addTurle(){
         Tortue turtle = generateTurtle();
         this.getFeuille().addTortue(turtle);
         this.getTurtles().add(turtle);
 
-       // turtle.setColor(this.getCourante().getColor()); // default color is currently selected color
+        return turtle;
     }
 
 

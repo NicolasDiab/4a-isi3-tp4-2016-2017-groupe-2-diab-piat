@@ -171,4 +171,13 @@ public class LogoController extends BaseController {
         getCourante().setPosition(size.width / 2, size.height / 2);
     }
 
+    @Override
+    public Tortue addTurle(){
+        Tortue turtle = super.addTurle();
+
+        turtle.setColor(this.getCourante().getColor()); // change color of default turtle
+
+        return turtle;
+    }
+
 }
