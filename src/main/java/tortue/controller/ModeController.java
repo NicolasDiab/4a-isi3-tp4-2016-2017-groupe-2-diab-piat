@@ -30,13 +30,14 @@ public class ModeController implements ActionListener {
 
         switch (c) {
             case "Mode 1":
-                System.out.println("Mode 1");
+                System.out.println("Tortues controlées");
+
                 break;
             case "Mode 2":
-                System.out.println("Mode 2");
+                System.out.println("Tortues aléatoires");
                 break;
             case "Mode 3":
-                System.out.println("Mode 3");
+                System.out.println("Flocking");
                 break;
 
         }

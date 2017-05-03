@@ -49,19 +49,19 @@ public class ModeWindow extends JFrame implements Observer {
 
         // les boutons du bas
         JPanel jPanel = new JPanel(new GridLayout());
-        JButton mode1 = new JButton("Mode 1");
+        JButton mode1 = new JButton("Tortues controlées");
         jPanel.add(mode1);
         mode1.addActionListener(this.getController());
-        JButton mode2 = new JButton("Mode 2");
+        JButton mode2 = new JButton("Tortues aléatoires");
         jPanel.add(mode2);
         mode2.addActionListener(this.getController());
-        JButton mode3 = new JButton("Mode 3");
+        JButton mode3 = new JButton("Flocking");
         jPanel.add(mode3);
         mode3.addActionListener(this.getController());
 
         getContentPane().add(jPanel, "South");
 
-        this.getContentPane().setPreferredSize(new Dimension(300, 50));
+        this.getContentPane().setPreferredSize(new Dimension(500, 40));
         this.setLocationRelativeTo(null);
 
 
