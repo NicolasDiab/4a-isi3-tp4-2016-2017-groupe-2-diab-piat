@@ -9,7 +9,7 @@
 *Diagramme de classe avant refactoring (reconstitué avec IntelliJ)*
 ![diagram](images/diagramDeBase.png)
 
-Dans cette version de l'application, nous avons remarqué que la vue et le contrôleur sont fusionnés dans la classe tortue.controller.LogoController.
+Dans cette version de l'application, nous avons remarqué que la vue et le contrôleur sont fusionnés dans la classe tortue.controller.ManualController.
 
 ## Question 2
 *Rien à rédiger*

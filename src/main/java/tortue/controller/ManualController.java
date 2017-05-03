@@ -11,26 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 
-/*************************************************************************
-
- Un petit Logo minimal qui devra etre ameliore par la suite
-
- J. Ferber - 1999-2001
-
- Cours de DESS TNI - Montpellier II
-
- @version 2.0
- @date 25/09/
-
-
- **************************************************************************/
-
-
-public class LogoController extends TurtleController {
+public class ManualController extends TurtleController {
 
     private Tortue courante;
 
-    public LogoController(Window window) {
+    public ManualController(Window window) {
         super(window);
     }
 

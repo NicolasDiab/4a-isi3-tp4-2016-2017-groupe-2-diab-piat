@@ -1,6 +1,6 @@
 package tortue.view;
 
-import tortue.controller.LogoController;
+import tortue.controller.ManualController;
 import tortue.model.Tortue;
 
 import javax.swing.*;
@@ -13,7 +13,7 @@ public class Window extends JFrame implements Observer {
 
     private static final Dimension VGAP = new Dimension(1, 5);
     private static final Dimension HGAP = new Dimension(5, 1);
-    private LogoController controller;
+    private ManualController controller;
 
     private JTextField inputValue;
     /**
@@ -32,7 +32,7 @@ public class Window extends JFrame implements Observer {
 
         super("un logo tout simple");
         this.setVisible(true);
-        this.setController(new LogoController(this));
+        this.setController(new ManualController(this));
 
         logoInit();
 
@@ -55,11 +55,11 @@ public class Window extends JFrame implements Observer {
     }
 
 
-    public LogoController getController() {
+    public ManualController getController() {
         return controller;
     }
 
-    public void setController(LogoController controller) {
+    public void setController(ManualController controller) {
         this.controller = controller;
     }
 
