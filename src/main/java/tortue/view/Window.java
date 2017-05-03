@@ -35,10 +35,6 @@ public class Window extends JFrame implements Observer {
 
         super("un logo tout simple");
         this.setVisible(true);
-        this.setController(new ManualController(this));
-
-        logoInit();
-
     }
 
     public JTextField getInputValue() {

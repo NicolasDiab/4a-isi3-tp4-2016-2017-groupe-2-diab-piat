@@ -33,12 +33,14 @@ public class ModeController implements ActionListener {
                 ManualController manualController = new ManualController(window);
                 manualController.setWindow(window);
                 window.setController(manualController);
+                window.logoInit();
                 break;
             case "Tortues aléatoires":
                 System.out.println("Tortues aléatoires");
                 RandomController randomController = new RandomController(window);
                 randomController.setWindow(window);
                 window.setController(randomController);
+                window.logoInit();
                 break;
             case "Flocking":
                 System.out.println("Flocking");
