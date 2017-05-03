@@ -1,5 +1,6 @@
 package tortue.model.agent;
 
+import tortue.model.Environnement;
 import tortue.model.Tortue;
 import tortue.view.FeuilleDessin;
 import tortue.view.Window;
@@ -15,6 +16,7 @@ public class AgentRandom extends BaseAgent {
 
     public AgentRandom(List<Tortue> turtles) {
         this.setTurtles(turtles);
+        this.setEnvironnement(new Environnement(turtles));
     }
 
 

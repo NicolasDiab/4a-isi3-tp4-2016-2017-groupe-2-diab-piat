@@ -1,5 +1,6 @@
 package tortue.model.agent;
 
+import tortue.model.Environnement;
 import tortue.model.Tortue;
 import tortue.view.FeuilleDessin;
 
@@ -10,7 +11,9 @@ import java.util.List;
  * Created by Nicolas on 03/05/2017.
  */
 public abstract class BaseAgent implements Runnable {
-    private List<Tortue> turtles;
+
+    private Environnement environnement;
+
 
     public final String ACTION_AVANCER = "Avancer";
     public final String ACTION_DROITE = "Droite";
@@ -28,13 +31,21 @@ public abstract class BaseAgent implements Runnable {
     }
 
     public List<Tortue> getTurtles() {
-        return turtles;
+        return this.getEnvironnement().getTurtles();
     }
 
     public void setTurtles(List<Tortue> turtles) {
-        this.turtles = turtles;
+        this.getEnvironnement().setTurtles(turtles);
     }
 
     @Override
     public abstract void run();
+
+    public Environnement getEnvironnement() {
+        return environnement;
+    }
+
+    public void setEnvironnement(Environnement environnement) {
+        this.environnement = environnement;
+    }
 }
