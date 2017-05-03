@@ -152,6 +152,10 @@ public class Window extends JFrame implements Observer {
         addMenuItem(menuCommandes, "Lever Crayon", "Lever", -1);
         addMenuItem(menuCommandes, "Baisser Crayon", "Baisser", -1);
 
+        colorList.addActionListener(this.getController());
+
+
+
         JMenu menuHelp = new JMenu("Aide"); // on installe le premier menu
         menubar.add(menuHelp);
         addMenuItem(menuHelp, "Aide", "Help", -1);
