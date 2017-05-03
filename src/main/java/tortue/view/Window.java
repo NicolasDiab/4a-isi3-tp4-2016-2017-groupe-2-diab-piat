@@ -13,6 +13,7 @@ public class Window extends JFrame implements Observer {
 
     private static final Dimension VGAP = new Dimension(1, 5);
     private static final Dimension HGAP = new Dimension(5, 1);
+
     private ManualController controller;
 
     private JTextField inputValue;
