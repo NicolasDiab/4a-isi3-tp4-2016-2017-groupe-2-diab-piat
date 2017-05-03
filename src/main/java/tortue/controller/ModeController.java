@@ -2,6 +2,7 @@ package tortue.controller;
 
 
 import tortue.view.ModeWindow;
+import tortue.view.Window;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,13 +25,20 @@ public class ModeController implements ActionListener {
     /** la gestion des actions des boutons */
     public void actionPerformed(ActionEvent e) {
         String c = e.getActionCommand();
+        Window window = new Window();
 
         switch (c) {
             case "Tortues controlées":
                 System.out.println("Tortues controlées");
+                ManualController manualController = new ManualController(window);
+                manualController.setWindow(window);
+                window.setController(manualController);
                 break;
             case "Tortues aléatoires":
                 System.out.println("Tortues aléatoires");
+                RandomController randomController = new RandomController(window);
+                randomController.setWindow(window);
+                window.setController(randomController);
                 break;
             case "Flocking":
                 System.out.println("Flocking");

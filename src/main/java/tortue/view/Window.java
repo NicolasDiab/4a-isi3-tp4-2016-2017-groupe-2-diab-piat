@@ -62,7 +62,7 @@ public class Window extends JFrame implements Observer {
         return controller;
     }
 
-    public void setController(ManualController controller) {
+    public void setController(TurtleController controller) {
         this.controller = controller;
     }
 
