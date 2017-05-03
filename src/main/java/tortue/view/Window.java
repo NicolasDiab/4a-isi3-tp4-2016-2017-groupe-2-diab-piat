@@ -176,7 +176,7 @@ public class Window extends JFrame implements Observer {
         getContentPane().add(p2, "South");
 
         // feuille
-        FeuilleDessin feuille = getController().generateFeuille();
+        FeuilleDessin feuille = getController().getFeuille();
         // bouton gauche de clic sur la feuille
         feuille.addMouseListener(new MouseAdapter() {
             @Override

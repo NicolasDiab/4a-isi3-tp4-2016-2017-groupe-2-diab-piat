@@ -20,6 +20,7 @@ public abstract class BaseController implements ActionListener, Observer {
 
     public BaseController (Window window) {
         this.setWindow(window);
+        this.setFeuille(this.generateFeuille());
         this.setTurtles(new ArrayList<>());
     }
 
