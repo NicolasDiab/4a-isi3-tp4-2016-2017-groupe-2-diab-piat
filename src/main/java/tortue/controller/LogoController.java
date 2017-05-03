@@ -32,17 +32,9 @@ import java.util.Observer;
  **************************************************************************/
 
 
-public class LogoController implements ActionListener, Observer {
-    private FeuilleDessin feuille;
+public class LogoController extends BaseController {
+
     private Tortue courante;
-    private Window window;
-
-    private List<Tortue> turtles;
-
-
-    private void quitter() {
-        System.exit(0);
-    }
 
     public LogoController(Window window) {
         this.setWindow(window);
@@ -136,15 +128,6 @@ public class LogoController implements ActionListener, Observer {
         new Spiral(getCourante(), 50, 40, 6);
     }
 
-    // efface tout et reinitialise la feuille
-    public void effacer() {
-        getFeuille().reset();
-
-        // Replace la tortue au centre
-        Dimension size = getFeuille().getSize();
-        getCourante().setPosition(size.width / 2, size.height / 2);
-    }
-
     public void changeCurrentTurtle(double clicX, double clicY) {
         System.out.println("x:" + clicX + " y:"+ clicY);
 
@@ -162,71 +145,30 @@ public class LogoController implements ActionListener, Observer {
         }
     }
 
-    public Tortue generateTurtle(){
-        Tortue turtle = new Tortue();
-        turtle.addObserver(this);
-        turtle.setPosition(500 / 2, 400 / 2);
-        this.getTurtles().add(turtle);
-
-        return turtle;
-    }
-
-    public void addTurle(){
-        Tortue turtle = generateTurtle();
-        this.getFeuille().addTortue(turtle);
-        this.getTurtles().add(turtle);
-
-        turtle.setColor(this.getCourante().getColor()); // default color is currently selected color
-    }
 
 
-    public FeuilleDessin generateFeuille(){
-
-        FeuilleDessin feuille = new FeuilleDessin(); //500, 400);
-        feuille.setBackground(Color.white);
-        feuille.setSize(new Dimension(600, 400));
-        feuille.setPreferredSize(new Dimension(600, 400));
-
-        return feuille;
-    }
 
 
-    public FeuilleDessin getFeuille() {
-        return feuille;
-    }
-
-    public void setFeuille(FeuilleDessin feuille) {
-        this.feuille = feuille;
+    public void setCourante(Tortue courante) {
+        this.courante = courante;
     }
 
     public Tortue getCourante() {
         return courante;
     }
 
-    public void setCourante(Tortue courante) {
-        this.courante = courante;
-    }
-
-    public Window getWindow() {
-        return window;
-    }
-
-    public void setWindow(Window window) {
-        this.window = window;
-    }
-
-
 
     @Override
-    public void update(Observable o, Object arg) {
-        this.getWindow().repaint();
+    public void effacer() {
+        super.effacer();
+
+        // ajoute une nouvelle tortue
+        Tortue tortue = this.generateTurtle();
+
+        // la place au milieu
+        this.setCourante(tortue);
+        Dimension size = getFeuille().getSize();
+        getCourante().setPosition(size.width / 2, size.height / 2);
     }
 
-    public List<Tortue> getTurtles() {
-        return turtles;
-    }
-
-    public void setTurtles(List<Tortue> turtles) {
-        this.turtles = turtles;
-    }
 }
