@@ -29,14 +29,14 @@ public class ModeController implements ActionListener {
         String c = e.getActionCommand();
 
         switch (c) {
-            case "Mode 1":
+            case "Tortues controlées":
                 System.out.println("Tortues controlées");
 
                 break;
-            case "Mode 2":
+            case "Tortues aléatoires":
                 System.out.println("Tortues aléatoires");
                 break;
-            case "Mode 3":
+            case "Flocking":
                 System.out.println("Flocking");
                 break;
 
