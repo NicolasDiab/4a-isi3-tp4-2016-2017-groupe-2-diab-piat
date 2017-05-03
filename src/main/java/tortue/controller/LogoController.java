@@ -37,8 +37,7 @@ public class LogoController extends BaseController {
     private Tortue courante;
 
     public LogoController(Window window) {
-        this.setWindow(window);
-        this.setTurtles(new ArrayList<>());
+        super(window);
     }
 
     public String getInputValueString() {
@@ -51,7 +50,7 @@ public class LogoController extends BaseController {
         if (e.getSource() instanceof JComboBox) {
             JComboBox cb = (JComboBox) e.getSource();
             int n = cb.getSelectedIndex();
-            getCourante().setColor(n);
+            this.getCourante().setColor(n);
         } else {
             String c = e.getActionCommand();
 
@@ -60,7 +59,7 @@ public class LogoController extends BaseController {
                     System.out.println("command avancer");
                     try {
                         int v = Integer.parseInt(this.getInputValueString());
-                        getCourante().avancer(v);
+                        this.getCourante().avancer(v);
                     } catch (NumberFormatException ex) {
                         System.err.println("ce n'est pas un nombre : " + this.getInputValueString());
                     }
@@ -68,7 +67,7 @@ public class LogoController extends BaseController {
                 case "Droite":
                     try {
                         int v = Integer.parseInt(this.getInputValueString());
-                        getCourante().droite(v);
+                        this.getCourante().droite(v);
                     } catch (NumberFormatException ex) {
                         System.err.println("ce n'est pas un nombre : " + this.getInputValueString());
                     }
@@ -76,34 +75,34 @@ public class LogoController extends BaseController {
                 case "Gauche":
                     try {
                         int v = Integer.parseInt(this.getInputValueString());
-                        getCourante().gauche(v);
+                        this.getCourante().gauche(v);
                     } catch (NumberFormatException ex) {
                         System.err.println("ce n'est pas un nombre : " + this.getInputValueString());
                     }
                     break;
                 case "Lever":
-                    getCourante().leverCrayon();
+                    this.getCourante().leverCrayon();
                     break;
                 case "Baisser":
-                    getCourante().baisserCrayon();
+                    this.getCourante().baisserCrayon();
                     // actions des boutons du bas
                 case "Proc1":
-                    proc1();
+                    this.proc1();
                     break;
                 case "Proc2":
-                    proc2();
+                    this.proc2();
                     break;
                 case "Proc3":
-                    proc3();
+                    this.proc3();
                     break;
                 case "Effacer":
-                    effacer();
+                    this.effacer();
                     break;
                 case "Quitter":
-                    quitter();
+                    this.quitter();
                     break;
                 case "Add Turtle":
-                    addTurle();
+                    this.addTurle();
                     break;
             }
         }
