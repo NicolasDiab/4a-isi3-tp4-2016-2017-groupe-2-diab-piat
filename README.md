@@ -97,3 +97,8 @@ ingénieur chez Sony qui a inventé le modèle de Boid (Bird-like Object) qui fa
 Améliorer l’application de sorte à pouvoir visualiser un comportement
 de flocking avec les tortues. Au lancement de l’application, on proposera les trois choix
 (tortues contrôlées, tortues autonomes, tortues en mode flocking).
+
+#### Questions du projet
+- ajouter des obstacles
+- évietr les obstacles
+- Eventuellement : trouver le plus court chemin entre 2 points -> colonie de fourmies. On pose une trace à chaque succès. Peut etre faire un espace borné

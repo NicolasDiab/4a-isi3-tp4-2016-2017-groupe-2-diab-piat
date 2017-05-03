@@ -44,6 +44,10 @@ public class ModeController implements ActionListener {
                 break;
             case "Flocking":
                 System.out.println("Flocking");
+                FlockingController flockingController = new FlockingController(window);
+                flockingController.setWindow(window);
+                window.setController(flockingController);
+                window.logoInit();
                 break;
 
         }
