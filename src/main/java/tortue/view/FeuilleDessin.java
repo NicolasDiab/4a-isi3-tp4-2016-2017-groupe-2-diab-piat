@@ -60,11 +60,29 @@ public class FeuilleDessin extends JPanel {
         if (graph == null)
             return;
 
+
+        /** Toroidal **/
+        if (tortue.getY() < 0)
+            tortue.setY(getSize().height);
+        if (tortue.getY() > getSize().height)
+            tortue.setY(0);
+
+        if (tortue.getX() < 0)
+            tortue.setX(getSize().width);
+        if (tortue.getX() > getSize().width)
+            tortue.setX(0);
+
+
+
         // Dessine les segments
         for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
             Segment seg = (Segment) it.next();
             this.drawSegment(seg, graph);
         }
+
+
+
+        System.out.println(getMaximumSize());
 
         //Calcule les 3 coins du triangle a partir de
         // la position de la tortue p
