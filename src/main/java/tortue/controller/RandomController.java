@@ -21,18 +21,10 @@ public class RandomController extends TurtleController {
         this.agentRandom = new AgentRandom(this.getTurtles());
         Thread agent = new Thread(this.agentRandom);
         agent.start();
-
-     //   this.run();
     }
 
     @Override
     public void leftClick(int x, int y) {
 
     }
-
-
-
-
-
-
 }

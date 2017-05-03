@@ -1,12 +1,19 @@
 package tortue.controller;
 
-import tortue.model.Tortue;
+import tortue.model.agent.FlockingAgent;
 import tortue.view.Window;
 
 public class FlockingController extends TurtleController {
 
-    public FlockingController(Window window) {
+    private FlockingAgent flockingAgent;
+
+    public FlockingController (Window window) {
         super(window);
+        this.addTurle();
+
+        this.flockingAgent = new FlockingAgent(this.getTurtles());
+        Thread agent = new Thread(this.flockingAgent);
+        agent.start();
     }
 
     @Override
