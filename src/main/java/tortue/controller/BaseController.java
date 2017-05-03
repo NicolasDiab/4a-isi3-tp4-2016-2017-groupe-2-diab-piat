@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Created by Nicolas on 03/05/2017.
- */
 public abstract class BaseController implements ActionListener, Observer {
     protected FeuilleDessin feuille;
     protected Window window;
