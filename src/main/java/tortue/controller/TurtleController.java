@@ -5,9 +5,9 @@ import tortue.view.Window;
 /**
  * Created by Nicolas on 03/05/2017.
  */
-public class RandomController extends TurtleController {
+public abstract class TurtleController extends BaseController {
 
-    public RandomController (Window window) {
+    public TurtleController(Window window) {
         super(window);
     }
 }

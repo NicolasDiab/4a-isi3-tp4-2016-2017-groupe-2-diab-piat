@@ -32,7 +32,7 @@ import java.util.Observer;
  **************************************************************************/
 
 
-public class LogoController extends BaseController {
+public class LogoController extends TurtleController {
 
     private Tortue courante;
 
