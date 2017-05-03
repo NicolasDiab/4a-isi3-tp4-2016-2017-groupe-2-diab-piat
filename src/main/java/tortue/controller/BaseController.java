@@ -37,6 +37,8 @@ public abstract class BaseController implements ActionListener, Observer {
         }
     }
 
+    public abstract void leftClick(int x, int y);
+
     protected void quitter() {
         System.exit(0);
     }

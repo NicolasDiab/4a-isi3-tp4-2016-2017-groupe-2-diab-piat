@@ -153,9 +153,18 @@ public class ManualController extends TurtleController {
     public Tortue addTurle(){
         Tortue turtle = super.addTurle();
 
+        if (this.getCourante() == null)
+            this.setCourante(turtle);
+
         turtle.setColor(this.getCourante().getColor()); // change color of default turtle
+        this.setCourante(turtle);
 
         return turtle;
+    }
+
+
+    public void leftClick(int x, int y) {
+        this.changeCurrentTurtle(x, y);
     }
 
 }

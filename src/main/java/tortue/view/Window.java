@@ -1,6 +1,8 @@
 package tortue.view;
 
+import tortue.controller.BaseController;
 import tortue.controller.ManualController;
+import tortue.controller.TurtleController;
 import tortue.model.Tortue;
 
 import javax.swing.*;
@@ -14,7 +16,7 @@ public class Window extends JFrame implements Observer {
     private static final Dimension VGAP = new Dimension(1, 5);
     private static final Dimension HGAP = new Dimension(5, 1);
 
-    private ManualController controller;
+    private TurtleController controller;
 
     private JTextField inputValue;
     /**
@@ -56,7 +58,7 @@ public class Window extends JFrame implements Observer {
     }
 
 
-    public ManualController getController() {
+    public TurtleController getController() {
         return controller;
     }
 
@@ -184,18 +186,16 @@ public class Window extends JFrame implements Observer {
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e)) {
-                    getController().changeCurrentTurtle(e.getX(), e.getY());
+                    getController().leftClick(e.getX(), e.getY());
                 }
             }
         });
 
-        Tortue turtle = getController().generateTurtle();
+        this.getController().setFeuille(feuille);
+        Tortue turtle = this.getController().addTurle();
 
-
-        this.getController().setCourante(turtle);
         feuille.addTortue(turtle);
 
-        this.getController().setFeuille(feuille);
         getContentPane().add(this.controller.getFeuille(), "Center");
 
         pack();

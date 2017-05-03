@@ -10,4 +10,9 @@ public class RandomController extends TurtleController {
     public RandomController (Window window) {
         super(window);
     }
+
+    @Override
+    public void leftClick(int x, int y) {
+
+    }
 }
