@@ -5,7 +5,9 @@ import tortue.view.FeuilleDessin;
 import tortue.view.Window;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -19,6 +21,21 @@ public abstract class BaseController implements ActionListener, Observer {
 
     protected List<Tortue> turtles;
 
+    public BaseController (Window window) {
+        this.setWindow(window);
+        this.setTurtles(new ArrayList<>());
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String c = e.getActionCommand();
+
+        switch (c) {
+            case "Add Turtle":
+                this.addTurle();
+                break;
+        }
+    }
 
     protected void quitter() {
         System.exit(0);
@@ -47,7 +64,6 @@ public abstract class BaseController implements ActionListener, Observer {
         return turtle;
     }
 
-
     public FeuilleDessin generateFeuille(){
 
         FeuilleDessin feuille = new FeuilleDessin(); //500, 400);
@@ -57,7 +73,6 @@ public abstract class BaseController implements ActionListener, Observer {
 
         return feuille;
     }
-
 
     public FeuilleDessin getFeuille() {
         return feuille;
