@@ -10,7 +10,7 @@ public class FlockingAgent extends BaseAgent {
 
     private final int RANGE = 20;
     private final int MAX_DIR_CHANGE = 15;
-    private final int MAX_COLLISION_AVOIDANCE_DIR= 15;
+    private final int MAX_COLLISION_AVOIDANCE_DIR= 90;
     private final int TURTLE_SPEED = 5;
     private final int TURTLE_LOW_SPEED = 3;
 
@@ -87,7 +87,7 @@ public class FlockingAgent extends BaseAgent {
                 int newY = turtle.getFutureY(speed, dir);
                 int finalDir = - 1000;
 
-                while (getEnvironnement().isOnObstacle(newX, newY) && offset <= 45){
+                while (getEnvironnement().isOnObstacle(newX, newY) && offset <= MAX_COLLISION_AVOIDANCE_DIR){
                     offset += rand.nextInt(5);
                     dir = turtle.getDir() + offset;
                     newX = turtle.getFutureX(speed, dir);
@@ -100,7 +100,7 @@ public class FlockingAgent extends BaseAgent {
                 if (finalDir == - 1000){
                     offset = 0;
 
-                    while (getEnvironnement().isOnObstacle(newX, newY) && offset >= -45){
+                    while (getEnvironnement().isOnObstacle(newX, newY) && offset >= - MAX_COLLISION_AVOIDANCE_DIR){
                         offset += rand.nextInt(5);
                         dir = turtle.getDir() - offset;
                         newX = turtle.getFutureX(speed, dir);
