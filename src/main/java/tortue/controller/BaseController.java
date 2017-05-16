@@ -7,10 +7,8 @@ import tortue.view.Window;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 public abstract class BaseController implements ActionListener, Observer {
     protected FeuilleDessin feuille;
@@ -54,7 +52,8 @@ public abstract class BaseController implements ActionListener, Observer {
     public Tortue generateTurtle(int x, int y, int dir){
         Tortue turtle = new Tortue();
         turtle.addObserver(this);
-        turtle.setPosition(500 / 2, 400 / 2);
+        turtle.setPosition(x, y);
+        turtle.setDir(dir);
         this.getTurtles().add(turtle);
 
         return turtle;
@@ -65,11 +64,20 @@ public abstract class BaseController implements ActionListener, Observer {
     }
 
     public Tortue addTurtle(int x, int y, int dir){
-        Tortue turtle = generateTurtle();
+        Tortue turtle = generateTurtle(x, y, dir);
         this.getFeuille().addTortue(turtle);
         this.getTurtles().add(turtle);
 
         return turtle;
+    }
+
+    public Tortue addRandomTurtle() {
+        Random rand = new Random();
+        int x = rand.nextInt(499);
+        int y = rand.nextInt(399);
+        int dir = rand.nextInt(359);
+        System.out.println("x "+x + " y "+ y + " dir "+ dir);
+        return this.addTurtle(x, y, dir);
     }
 
     public FeuilleDessin generateFeuille(){

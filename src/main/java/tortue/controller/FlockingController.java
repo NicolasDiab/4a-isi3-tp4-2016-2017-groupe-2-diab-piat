@@ -9,7 +9,10 @@ public class FlockingController extends TurtleController {
 
     public FlockingController (Window window) {
         super(window);
-        this.addTurtle();
+
+        // add 30 turtles
+        for (int i=0; i<30; i++)
+            this.addRandomTurtle();
 
         this.flockingAgent = new FlockingAgent(this.getTurtles());
         Thread agent = new Thread(this.flockingAgent);
