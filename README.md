@@ -100,5 +100,5 @@ de flocking avec les tortues. Au lancement de l’application, on proposera les 
 
 #### Questions du projet
 - ajouter des obstacles
-- évietr les obstacles
+- éviter les obstacles
 - Eventuellement : trouver le plus court chemin entre 2 points -> colonie de fourmies. On pose une trace à chaque succès. Peut etre faire un espace borné

@@ -3,9 +3,6 @@ package tortue.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Nicolas on 03/05/2017.
- */
 public class Environnement {
     private List<Tortue> turtles;
 

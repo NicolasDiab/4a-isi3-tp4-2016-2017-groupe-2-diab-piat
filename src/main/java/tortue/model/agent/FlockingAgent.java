@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Nicolas on 03/05/2017.
- */
 public class FlockingAgent extends BaseAgent {
 
-    private final int RANGE = 80;
+    private final int RANGE = 50;
+    private final int MAX_DIR_CHANGE = 15;
+    private final int TURTLE_SPEED = 5;
+    private final int TURTLE_LOW_SPEED = 3;
 
     public FlockingAgent(List<Tortue> turtles) {
         this.setEnvironnement(new Environnement(turtles));
@@ -26,25 +26,41 @@ public class FlockingAgent extends BaseAgent {
 
             int nbTurtles = this.getTurtles().size();
 
+            int averageDir = 0;
+
             for (Tortue turtle : this.getTurtles()) {
                 // neighbours turtles
                 List<Tortue> flock = this.getEnvironnement().getTurtlesInRange(turtle.getX(), turtle.getY(), this.RANGE);
 
-                int totalDir = 0;
-                int dirCount = 0;
-                for (Tortue flockTurtle : flock){
-                    totalDir += flockTurtle.getDir();
-                    dirCount ++;
+
+                /**
+                 * Compute average dir
+                 */
+                averageDir = (((int) flock.stream()
+                        .mapToInt(t -> t.getDir())
+                        .average().getAsDouble()));
+
+                /**
+                 * Set a maximum of dir change to 30 degrees
+                 */
+                if (Math.abs(turtle.getDir() - averageDir) > MAX_DIR_CHANGE){
+                    if (turtle.getDir() - averageDir > 0)
+                        turtle.setDir(turtle.getDir() + MAX_DIR_CHANGE);
+                    if (turtle.getDir() - averageDir < 0)
+                        turtle.setDir(turtle.getDir() - MAX_DIR_CHANGE);
                 }
-                // average dir
-                int averageDir = totalDir / dirCount;
+
 
                 turtle.setDir(averageDir);
-                turtle.avancer(30);
+
+                if (flock.size() == 0)
+                    turtle.avancer(TURTLE_LOW_SPEED);
+                else
+                    turtle.avancer(TURTLE_SPEED);
             }
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
