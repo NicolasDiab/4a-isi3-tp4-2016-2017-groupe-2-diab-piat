@@ -17,6 +17,7 @@ public class RandomController extends TurtleController {
         this.randomAgent = new RandomAgent(this.getTurtles(), this.getFeuille().getObstacles());
         Thread agent = new Thread(this.randomAgent);
         agent.start();
+        this.getFeuille().setShowSegments(false);
     }
 
     @Override

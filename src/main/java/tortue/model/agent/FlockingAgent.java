@@ -1,6 +1,7 @@
 package tortue.model.agent;
 
 import tortue.model.Environnement;
+import tortue.model.Obstacle;
 import tortue.model.Tortue;
 import java.util.List;
 import java.util.Random;
@@ -15,9 +16,10 @@ public class FlockingAgent extends BaseAgent {
 
     private static final double RATION_DEG_RAD = 0.0174533; // Rapport radians/degres (pour la conversion)
 
-    public FlockingAgent(List<Tortue> turtles) {
+    public FlockingAgent(List<Tortue> turtles, List<Obstacle> obstacles) {
         this.setEnvironnement(new Environnement(turtles));
         this.setTurtles(turtles);
+        this.setObstacles(obstacles);
     }
 
     @Override
@@ -37,7 +39,6 @@ public class FlockingAgent extends BaseAgent {
                         .mapToInt(t -> t.getDir())
                         .average().getAsDouble()));
 
-
                 //for (Tortue item : flock){
 //
                 //    int minRangeX = item.getX() - 4;
@@ -51,7 +52,6 @@ public class FlockingAgent extends BaseAgent {
                 //    if (turtle.getY() > minRangeY && turtle.getY() < maxRangeY)
                 //        turtle.setDir(averageDir + rand.nextInt(5));
                 //}
-
 
                 /**
                  * Set a maximum of dir change to 30 degrees

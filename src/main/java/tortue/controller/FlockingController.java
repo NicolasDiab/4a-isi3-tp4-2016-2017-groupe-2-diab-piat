@@ -17,7 +17,7 @@ public class FlockingController extends TurtleController {
         for (int i=0; i<3; i++)
             this.addRandomObstacle();
 
-        this.flockingAgent = new FlockingAgent(this.getTurtles());
+        this.flockingAgent = new FlockingAgent(this.getTurtles(), this.getFeuille().getObstacles());
         Thread agent = new Thread(this.flockingAgent);
         agent.start();
         this.getFeuille().setShowSegments(false); // hide segments
