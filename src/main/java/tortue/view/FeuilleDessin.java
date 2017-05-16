@@ -94,7 +94,7 @@ public class FeuilleDessin extends JPanel {
             }
         }
 
-        System.out.println(getMaximumSize());
+        //System.out.println(getMaximumSize());
 
         //Calcule les 3 coins du triangle a partir de
         // la position de la tortue p

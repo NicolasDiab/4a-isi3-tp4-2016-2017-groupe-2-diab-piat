@@ -44,9 +44,9 @@ public class Environnement {
     public boolean isOnObstacle(int x, int y){
         for (Obstacle obstacle : getObstacles()){
             if (obstacle.isOnObstacle(x, y))
-                return false;
+                return true;
         }
 
-        return true;
+        return false;
     }
 }
