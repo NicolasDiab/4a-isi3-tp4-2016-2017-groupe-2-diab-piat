@@ -1,7 +1,5 @@
 package tortue.view;
 
-import tortue.controller.BaseController;
-import tortue.controller.ManualController;
 import tortue.controller.TurtleController;
 import tortue.model.Tortue;
 
@@ -188,7 +186,7 @@ public class Window extends JFrame implements Observer {
         });
 
         this.getController().setFeuille(feuille);
-        Tortue turtle = this.getController().addTurle();
+        Tortue turtle = this.getController().addTurtle();
 
         feuille.addTortue(turtle);
 

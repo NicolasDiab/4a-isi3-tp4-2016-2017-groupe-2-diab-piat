@@ -81,7 +81,7 @@ public class ManualController extends TurtleController {
                     this.quitter();
                     break;
                 case "Add Turtle":
-                    this.addTurle();
+                    this.addTurtle();
                     break;
             }
         }
@@ -150,8 +150,8 @@ public class ManualController extends TurtleController {
     }
 
     @Override
-    public Tortue addTurle(){
-        Tortue turtle = super.addTurle();
+    public Tortue addTurtle(){
+        Tortue turtle = super.addTurtle();
 
         if (this.getCourante() == null)
             this.setCourante(turtle);

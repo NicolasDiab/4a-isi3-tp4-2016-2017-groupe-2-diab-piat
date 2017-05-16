@@ -40,6 +40,7 @@ public class FlockingAgent extends BaseAgent {
                 int averageDir = totalDir / dirCount;
 
                 turtle.setDir(averageDir);
+                turtle.avancer(30);
             }
 
             try {

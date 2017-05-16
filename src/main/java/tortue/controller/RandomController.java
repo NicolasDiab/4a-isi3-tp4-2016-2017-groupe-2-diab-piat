@@ -1,11 +1,7 @@
 package tortue.controller;
 
-import tortue.model.Tortue;
 import tortue.model.agent.AgentRandom;
 import tortue.view.Window;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by Nicolas on 03/05/2017.
@@ -16,7 +12,7 @@ public class RandomController extends TurtleController {
 
     public RandomController (Window window) {
         super(window);
-        this.addTurle();
+        this.addTurtle();
 
         this.agentRandom = new AgentRandom(this.getTurtles());
         Thread agent = new Thread(this.agentRandom);

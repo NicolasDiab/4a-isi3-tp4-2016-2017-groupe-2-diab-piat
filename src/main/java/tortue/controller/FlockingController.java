@@ -9,7 +9,7 @@ public class FlockingController extends TurtleController {
 
     public FlockingController (Window window) {
         super(window);
-        this.addTurle();
+        this.addTurtle();
 
         this.flockingAgent = new FlockingAgent(this.getTurtles());
         Thread agent = new Thread(this.flockingAgent);

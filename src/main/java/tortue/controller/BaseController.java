@@ -30,7 +30,7 @@ public abstract class BaseController implements ActionListener, Observer {
 
         switch (c) {
             case "Add Turtle":
-                this.addTurle();
+                this.addTurtle();
                 break;
         }
     }
@@ -47,7 +47,11 @@ public abstract class BaseController implements ActionListener, Observer {
         getFeuille().reset();
     }
 
-    public Tortue generateTurtle(){
+    public Tortue generateTurtle() {
+        return this.generateTurtle(500 / 2, 400 / 2, 0);
+    }
+
+    public Tortue generateTurtle(int x, int y, int dir){
         Tortue turtle = new Tortue();
         turtle.addObserver(this);
         turtle.setPosition(500 / 2, 400 / 2);
@@ -56,7 +60,11 @@ public abstract class BaseController implements ActionListener, Observer {
         return turtle;
     }
 
-    public Tortue addTurle(){
+    public Tortue addTurtle() {
+        return this.addTurtle(500 / 2, 400 / 2, 0);
+    }
+
+    public Tortue addTurtle(int x, int y, int dir){
         Tortue turtle = generateTurtle();
         this.getFeuille().addTortue(turtle);
         this.getTurtles().add(turtle);
