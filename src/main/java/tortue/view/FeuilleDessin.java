@@ -30,6 +30,10 @@ public class FeuilleDessin extends JPanel {
         this.setShowSegments(true);
     }
 
+    public void addObstacle (Obstacle o) {
+        obstacles.add(o);
+    }
+
     public void addTortue(Tortue o) {
         tortues.add(o);
     }
@@ -52,6 +56,8 @@ public class FeuilleDessin extends JPanel {
         g.setColor(c);
 
         showTurtles(g);
+
+        this.showObstacles(g);
     }
 
     public void showTurtles(Graphics g) {
@@ -121,8 +127,16 @@ public class FeuilleDessin extends JPanel {
         graph.fillPolygon(arrow);
     }
 
-    public void drawObstacle(Obstacle obstacle) {
+    public void showObstacles(Graphics g) {
+        for (Iterator it = obstacles.iterator(); it.hasNext(); ) {
+            Obstacle o = (Obstacle) it.next();
+            this.drawObstacle(o, g);
+        }
+    }
 
+    public void drawObstacle(Obstacle obstacle, Graphics graph) {
+        graph.setColor(obstacle.decodeColor(obstacle.getColor()));
+        graph.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getSize(), obstacle.getSize());
     }
 
     public void drawSegment(Segment segment, Graphics graph) {

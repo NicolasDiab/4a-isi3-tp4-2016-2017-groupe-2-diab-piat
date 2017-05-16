@@ -3,6 +3,7 @@ package tortue.model.agent;
 import tortue.model.Environnement;
 import tortue.model.Tortue;
 import java.util.List;
+import java.util.Random;
 
 public class FlockingAgent extends BaseAgent {
 

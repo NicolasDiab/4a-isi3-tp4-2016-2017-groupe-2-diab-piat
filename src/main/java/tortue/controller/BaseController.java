@@ -90,7 +90,7 @@ public abstract class BaseController implements ActionListener, Observer {
         int size = rand.nextInt(9);
         int col = rand.nextInt(11);
 
-        return this.addObstacle(x, y, size, col);
+        return this.addObstacle(x, y, 30, col);
     }
 
     public Obstacle addObstacle(int x, int y, int size, int col) {
@@ -99,6 +99,8 @@ public abstract class BaseController implements ActionListener, Observer {
         obstacle.setY(y);
         obstacle.setSize(size);
         obstacle.setColor(col);
+
+        this.getFeuille().addObstacle(obstacle);
 
         return obstacle;
     }

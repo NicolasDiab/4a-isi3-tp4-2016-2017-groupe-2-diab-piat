@@ -14,6 +14,9 @@ public class FlockingController extends TurtleController {
         for (int i=0; i<30; i++)
             this.addRandomTurtle();
 
+        for (int i=0; i<3; i++)
+            this.addRandomObstacle();
+
         this.flockingAgent = new FlockingAgent(this.getTurtles());
         Thread agent = new Thread(this.flockingAgent);
         agent.start();
