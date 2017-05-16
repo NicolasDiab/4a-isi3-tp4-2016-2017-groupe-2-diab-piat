@@ -53,17 +53,21 @@ public class FlockingAgent extends BaseAgent {
                 //        turtle.setDir(averageDir + rand.nextInt(5));
                 //}
 
+
                 /**
                  * Set a maximum of dir change to 30 degrees
                  */
                 if (Math.abs(turtle.getDir() - averageDir) > MAX_DIR_CHANGE){
-                    if (turtle.getDir() - averageDir > 0)
+                    if (turtle.getDir() - averageDir > 0) {
                         turtle.setDir(turtle.getDir() + MAX_DIR_CHANGE);
-                    if (turtle.getDir() - averageDir < 0)
+                    }
+                    if (turtle.getDir() - averageDir < 0) {
                         turtle.setDir(turtle.getDir() - MAX_DIR_CHANGE);
+                    }
                 }
+                else
+                    turtle.setDir(averageDir);
 
-                turtle.setDir(averageDir);
 
                 /**
                  * Choose speed
@@ -107,12 +111,15 @@ public class FlockingAgent extends BaseAgent {
                     }
                 }
 
-                turtle.setDir(finalDir);
+                if (finalDir == - 1000)
+                    turtle.setDir(averageDir);
+                else
+                    turtle.setDir(finalDir);
                 turtle.avancer(speed);
             }
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -110,7 +110,7 @@ public class Obstacle extends Observable {
         int minRangeY = this.y - size / 2;
         int maxRangeY = this.y + size / 2;
 
-        if (x >= minRangeX && x <= maxRangeX && y >= minRangeY && y <= maxRangeY)
+        if (x > minRangeX && x < maxRangeX && y > minRangeY && y < maxRangeY)
             return true;
 
         return false;
