@@ -1,6 +1,6 @@
 package tortue.controller;
 
-import tortue.model.agent.AgentRandom;
+import tortue.model.agent.RandomAgent;
 import tortue.view.Window;
 
 /**
@@ -8,14 +8,14 @@ import tortue.view.Window;
  */
 public class RandomController extends TurtleController {
 
-    private AgentRandom agentRandom;
+    private RandomAgent randomAgent;
 
     public RandomController (Window window) {
         super(window);
         this.addTurtle();
 
-        this.agentRandom = new AgentRandom(this.getTurtles());
-        Thread agent = new Thread(this.agentRandom);
+        this.randomAgent = new RandomAgent(this.getTurtles());
+        Thread agent = new Thread(this.randomAgent);
         agent.start();
     }
 

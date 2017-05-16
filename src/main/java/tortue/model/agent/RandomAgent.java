@@ -12,9 +12,9 @@ import java.util.Random;
 /**
  * Created by Nicolas on 03/05/2017.
  */
-public class AgentRandom extends BaseAgent {
+public class RandomAgent extends BaseAgent {
 
-    public AgentRandom(List<Tortue> turtles) {
+    public RandomAgent(List<Tortue> turtles) {
         this.setEnvironnement(new Environnement(turtles));
         this.setTurtles(turtles);
     }
