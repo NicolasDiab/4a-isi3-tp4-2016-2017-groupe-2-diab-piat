@@ -102,4 +102,17 @@ public class Obstacle extends Observable {
     public void setSize(int size) {
         this.size = size;
     }
+
+    public boolean isOnObstacle(int x, int y){
+
+        int minRangeX = this.x - size;
+        int maxRangeX = this.x + size;
+        int minRangeY = this.y - size;
+        int maxRangeY = this.y + size;
+
+        if (x > minRangeX && x < maxRangeX && y > minRangeY && y < maxRangeY)
+            return false;
+
+        return true;
+    }
 }

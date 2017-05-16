@@ -40,4 +40,13 @@ public class Environnement {
     public void setObstacles(List<Obstacle> obstacles) {
         this.obstacles = obstacles;
     }
+
+    public boolean isOnObstacle(int x, int y){
+        for (Obstacle obstacle : getObstacles()){
+            if (obstacle.isOnObstacle(x, y))
+                return false;
+        }
+
+        return true;
+    }
 }

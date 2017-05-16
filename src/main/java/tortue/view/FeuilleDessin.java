@@ -84,16 +84,15 @@ public class FeuilleDessin extends JPanel {
             tortue.setX(0);
 
 
-
-        // Dessine les segments
+        /**
+         * Dessine les segments
+         */
         if (this.getShowSegments()) {
             for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
                 Segment seg = (Segment) it.next();
                 this.drawSegment(seg, graph);
             }
         }
-
-
 
         System.out.println(getMaximumSize());
 
