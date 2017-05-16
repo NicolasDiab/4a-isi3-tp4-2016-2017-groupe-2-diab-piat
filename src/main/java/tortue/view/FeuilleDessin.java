@@ -20,9 +20,11 @@ import java.util.Iterator;
 
 public class FeuilleDessin extends JPanel {
     private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
+    private boolean showSegments;
 
     public FeuilleDessin() {
         tortues = new ArrayList<Tortue>();
+        this.setShowSegments(true);
     }
 
     public void addTortue(Tortue o) {
@@ -75,9 +77,11 @@ public class FeuilleDessin extends JPanel {
 
 
         // Dessine les segments
-        for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
-            Segment seg = (Segment) it.next();
-            this.drawSegment(seg, graph);
+        if (this.getShowSegments()) {
+            for (Iterator it = tortue.getListSegments().iterator(); it.hasNext(); ) {
+                Segment seg = (Segment) it.next();
+                this.drawSegment(seg, graph);
+            }
         }
 
 
@@ -110,7 +114,7 @@ public class FeuilleDessin extends JPanel {
                 (int) Math.round(p2.y + r * Math.sin(theta - alpha)));
 
         arrow.addPoint(p2.x, p2.y);
-        graph.setColor(Color.green);
+        graph.setColor(tortue.decodeColor(tortue.getColor()));
         graph.fillPolygon(arrow);
     }
 
@@ -120,5 +124,13 @@ public class FeuilleDessin extends JPanel {
 
         graph.setColor(segment.color);
         graph.drawLine(segment.ptStart.x, segment.ptStart.y, segment.ptEnd.x, segment.ptEnd.y);
+    }
+
+    public boolean getShowSegments() {
+        return showSegments;
+    }
+
+    public void setShowSegments(boolean showSegments) {
+        this.showSegments = showSegments;
     }
 }

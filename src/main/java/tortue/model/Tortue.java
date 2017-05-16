@@ -75,7 +75,7 @@ public class Tortue extends Observable {
         setY(newY);
     }
 
-    protected Color decodeColor(int c) {
+    public Color decodeColor(int c) {
         switch (c) {
             case 0:
                 return (Color.black);

@@ -17,6 +17,7 @@ public class FlockingController extends TurtleController {
         this.flockingAgent = new FlockingAgent(this.getTurtles());
         Thread agent = new Thread(this.flockingAgent);
         agent.start();
+        this.getFeuille().setShowSegments(false); // hide segments
     }
 
     @Override

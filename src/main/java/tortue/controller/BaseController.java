@@ -28,7 +28,7 @@ public abstract class BaseController implements ActionListener, Observer {
 
         switch (c) {
             case "Add Turtle":
-                this.addTurtle();
+                this.addRandomTurtle();
                 break;
         }
     }
@@ -46,25 +46,26 @@ public abstract class BaseController implements ActionListener, Observer {
     }
 
     public Tortue generateTurtle() {
-        return this.generateTurtle(500 / 2, 400 / 2, 0);
+        return this.generateTurtle(500 / 2, 400 / 2, 0, 0);
     }
 
-    public Tortue generateTurtle(int x, int y, int dir){
+    public Tortue generateTurtle(int x, int y, int dir, int col){
         Tortue turtle = new Tortue();
         turtle.addObserver(this);
         turtle.setPosition(x, y);
         turtle.setDir(dir);
+        turtle.setColor(col);
         this.getTurtles().add(turtle);
 
         return turtle;
     }
 
     public Tortue addTurtle() {
-        return this.addTurtle(500 / 2, 400 / 2, 0);
+        return this.addTurtle(500 / 2, 400 / 2, 0, 0);
     }
 
-    public Tortue addTurtle(int x, int y, int dir){
-        Tortue turtle = generateTurtle(x, y, dir);
+    public Tortue addTurtle(int x, int y, int dir, int col){
+        Tortue turtle = generateTurtle(x, y, dir, col);
         this.getFeuille().addTortue(turtle);
         this.getTurtles().add(turtle);
 
@@ -76,8 +77,9 @@ public abstract class BaseController implements ActionListener, Observer {
         int x = rand.nextInt(499);
         int y = rand.nextInt(399);
         int dir = rand.nextInt(359);
+        int col = rand.nextInt(11);
         System.out.println("x "+x + " y "+ y + " dir "+ dir);
-        return this.addTurtle(x, y, dir);
+        return this.addTurtle(x, y, dir, col);
     }
 
     public FeuilleDessin generateFeuille(){
