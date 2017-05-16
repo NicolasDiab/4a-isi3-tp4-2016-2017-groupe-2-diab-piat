@@ -126,6 +126,14 @@ public class Tortue extends Observable {
         setY(newY);
     }
 
+
+    public int getFutureX(int dist, int dir) {
+        return (int) Math.round(getX() + dist * Math.cos(getRatioDegRad() * dir));
+    }
+    public int getFutureY(int dist, int dir) {
+        return (int) Math.round(getY() + dist * Math.sin(getRatioDegRad() * dir));
+    }
+
     public int getFutureX(int dist) {
         return (int) Math.round(getX() + dist * Math.cos(getRatioDegRad() * getDir()));
     }

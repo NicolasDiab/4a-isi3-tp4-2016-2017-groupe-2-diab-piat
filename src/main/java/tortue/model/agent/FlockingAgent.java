@@ -13,6 +13,8 @@ public class FlockingAgent extends BaseAgent {
     private final int TURTLE_SPEED = 5;
     private final int TURTLE_LOW_SPEED = 3;
 
+    private static final double RATION_DEG_RAD = 0.0174533; // Rapport radians/degres (pour la conversion)
+
     public FlockingAgent(List<Tortue> turtles) {
         this.setEnvironnement(new Environnement(turtles));
         this.setTurtles(turtles);
@@ -60,14 +62,53 @@ public class FlockingAgent extends BaseAgent {
                     if (turtle.getDir() - averageDir < 0)
                         turtle.setDir(turtle.getDir() - MAX_DIR_CHANGE);
                 }
+
                 turtle.setDir(averageDir);
 
-                // move the turtle
+                /**
+                 * Choose speed
+                 */
+                int speed;
                 if (flock.size() == 0)
-                    turtle.avancer(TURTLE_LOW_SPEED);
+                    speed = TURTLE_LOW_SPEED;
                 else
-                    turtle.avancer(TURTLE_SPEED);
+                    speed = TURTLE_SPEED;
 
+                /**
+                 * Check if a collision will occur
+                 */
+                int dir = turtle.getDir();
+                int offset = 0;
+                int newX = turtle.getFutureX(speed, dir);
+                int newY = turtle.getFutureY(speed, dir);
+                int finalDir = - 1000;
+
+                while (getEnvironnement().isOnObstacle(newX, newY) && offset <= 45){
+                    offset += rand.nextInt(5);
+                    dir = turtle.getDir() + offset;
+                    newX = turtle.getFutureX(speed, dir);
+                    newY = turtle.getFutureY(speed, dir);
+
+                    if (!getEnvironnement().isOnObstacle(newX, newY))
+                        finalDir = dir;
+                }
+
+                if (finalDir == - 1000){
+                    offset = 0;
+
+                    while (getEnvironnement().isOnObstacle(newX, newY) && offset >= -45){
+                        offset += rand.nextInt(5);
+                        dir = turtle.getDir() - offset;
+                        newX = turtle.getFutureX(speed, dir);
+                        newY = turtle.getFutureY(speed, dir);
+
+                        if (!getEnvironnement().isOnObstacle(newX, newY))
+                            finalDir = dir;
+                    }
+                }
+
+                turtle.setDir(finalDir);
+                turtle.avancer(speed);
             }
 
             try {
