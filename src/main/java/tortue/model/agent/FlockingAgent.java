@@ -9,6 +9,7 @@ public class FlockingAgent extends BaseAgent {
 
     private final int RANGE = 20;
     private final int MAX_DIR_CHANGE = 15;
+    private final int MAX_COLLISION_AVOIDANCE_DIR= 15;
     private final int TURTLE_SPEED = 5;
     private final int TURTLE_LOW_SPEED = 3;
 
@@ -66,6 +67,7 @@ public class FlockingAgent extends BaseAgent {
                     turtle.avancer(TURTLE_LOW_SPEED);
                 else
                     turtle.avancer(TURTLE_SPEED);
+
             }
 
             try {
