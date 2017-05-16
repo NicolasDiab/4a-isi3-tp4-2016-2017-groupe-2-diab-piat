@@ -1,6 +1,7 @@
 package tortue.model.agent;
 
 import tortue.model.Environnement;
+import tortue.model.Obstacle;
 import tortue.model.Tortue;
 import tortue.view.FeuilleDessin;
 import tortue.view.Window;
@@ -14,11 +15,11 @@ import java.util.Random;
  */
 public class RandomAgent extends BaseAgent {
 
-    public RandomAgent(List<Tortue> turtles) {
+    public RandomAgent(List<Tortue> turtles, List<Obstacle> obstacles) {
         this.setEnvironnement(new Environnement(turtles));
         this.setTurtles(turtles);
+        this.setObstacles(obstacles);
     }
-
 
     @Override
     public void run() {
@@ -32,7 +33,14 @@ public class RandomAgent extends BaseAgent {
             String action = getActions().get(rand.nextInt(this.getActions().size()));
             switch (action) {
                 case ACTION_AVANCER:
-                    turtle.avancer(rand.nextInt(100));
+                    int futureX = turtle.getFutureX(100);
+                    int futureY = turtle.getFutureY(100);
+
+                    //check obstacle
+                    if (!this.getEnvironnement().isOnObstacle(futureX, futureY))
+                        turtle.avancer(rand.nextInt(100));
+                    else
+                        turtle.droite(rand.nextInt(360));
                     break;
                 case ACTION_DROITE:
                     turtle.droite(rand.nextInt(360));

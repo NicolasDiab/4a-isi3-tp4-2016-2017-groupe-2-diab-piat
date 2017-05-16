@@ -26,12 +26,12 @@ public class FeuilleDessin extends JPanel {
 
     public FeuilleDessin() {
         tortues = new ArrayList<>();
-        obstacles = new ArrayList<>();
+        setObstacles(new ArrayList<>());
         this.setShowSegments(true);
     }
 
     public void addObstacle (Obstacle o) {
-        obstacles.add(o);
+        getObstacles().add(o);
     }
 
     public void addTortue(Tortue o) {
@@ -127,7 +127,7 @@ public class FeuilleDessin extends JPanel {
     }
 
     public void showObstacles(Graphics g) {
-        for (Iterator it = obstacles.iterator(); it.hasNext(); ) {
+        for (Iterator it = getObstacles().iterator(); it.hasNext(); ) {
             Obstacle o = (Obstacle) it.next();
             this.drawObstacle(o, g);
         }
@@ -152,5 +152,13 @@ public class FeuilleDessin extends JPanel {
 
     public void setShowSegments(boolean showSegments) {
         this.showSegments = showSegments;
+    }
+
+    public ArrayList<Obstacle> getObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(ArrayList<Obstacle> obstacles) {
+        this.obstacles = obstacles;
     }
 }

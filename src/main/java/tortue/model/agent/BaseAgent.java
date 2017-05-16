@@ -1,6 +1,7 @@
 package tortue.model.agent;
 
 import tortue.model.Environnement;
+import tortue.model.Obstacle;
 import tortue.model.Tortue;
 import tortue.view.FeuilleDessin;
 
@@ -36,6 +37,14 @@ public abstract class BaseAgent implements Runnable {
 
     public void setTurtles(List<Tortue> turtles) {
         this.getEnvironnement().setTurtles(turtles);
+    }
+
+    public void setObstacles(List<Obstacle> obstacles) {
+        this.getEnvironnement().setObstacles(obstacles);
+    }
+
+    public List<Obstacle> getObstacles() {
+        return this.getEnvironnement().getObstacles();
     }
 
     @Override

@@ -107,8 +107,8 @@ public class Tortue extends Observable {
     }
 
     public void avancer(int dist) {
-        int newX = (int) Math.round(getX() + dist * Math.cos(getRatioDegRad() * getDir()));
-        int newY = (int) Math.round(getY() + dist * Math.sin(getRatioDegRad() * getDir()));
+        int newX = this.getFutureX(dist);
+        int newY = this.getFutureY(dist);
 
         if (isCrayon() == true) {
             Segment seg = new Segment();
@@ -124,6 +124,13 @@ public class Tortue extends Observable {
 
         setX(newX);
         setY(newY);
+    }
+
+    public int getFutureX(int dist) {
+        return (int) Math.round(getX() + dist * Math.cos(getRatioDegRad() * getDir()));
+    }
+    public int getFutureY(int dist) {
+        return (int) Math.round(getY() + dist * Math.sin(getRatioDegRad() * getDir()));
     }
 
     public void droite(int ang) {
