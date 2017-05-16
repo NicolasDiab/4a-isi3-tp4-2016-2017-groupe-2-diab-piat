@@ -31,6 +31,9 @@ public abstract class BaseController implements ActionListener, Observer {
             case "Add Turtle":
                 this.addRandomTurtle();
                 break;
+            case "Add Obstacle":
+                this.addRandomObstacle();
+                break;
         }
     }
 

@@ -117,6 +117,7 @@ public class Window extends JFrame implements Observer {
         addButton(toolBar, "Lever", "Lever Crayon", null);
         addButton(toolBar, "Baisser", "Baisser Crayon", null);
         addButton(toolBar, "Add Turtle", "Add turtle", null);
+        addButton(toolBar, "Add Obstacle", "Add obstacle", null);
 
         String[] colorStrings = {"noir", "bleu", "cyan", "gris fonce", "rouge",
                 "vert", "gris clair", "magenta", "orange",
