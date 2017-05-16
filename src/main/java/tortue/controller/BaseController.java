@@ -1,5 +1,6 @@
 package tortue.controller;
 
+import tortue.model.Obstacle;
 import tortue.model.Tortue;
 import tortue.view.FeuilleDessin;
 import tortue.view.Window;
@@ -80,6 +81,26 @@ public abstract class BaseController implements ActionListener, Observer {
         int col = rand.nextInt(11);
         System.out.println("x "+x + " y "+ y + " dir "+ dir);
         return this.addTurtle(x, y, dir, col);
+    }
+
+    public Obstacle addRandomObstacle() {
+        Random rand = new Random();
+        int x = rand.nextInt(499);
+        int y = rand.nextInt(399);
+        int size = rand.nextInt(9);
+        int col = rand.nextInt(11);
+
+        return this.addObstacle(x, y, size, col);
+    }
+
+    public Obstacle addObstacle(int x, int y, int size, int col) {
+        Obstacle obstacle = new Obstacle();
+        obstacle.setX(x);
+        obstacle.setY(y);
+        obstacle.setSize(size);
+        obstacle.setColor(col);
+
+        return obstacle;
     }
 
     public FeuilleDessin generateFeuille(){

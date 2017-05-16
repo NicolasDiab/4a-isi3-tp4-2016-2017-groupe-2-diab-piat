@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Environnement {
     private List<Tortue> turtles;
+    private List<Obstacle> obstacles;
 
     public Environnement(List<Tortue> turtles) {
         this.setTurtles(turtles);
+        this.setObstacles(new ArrayList<>());
     }
 
     public List<Tortue> getTurtlesInRange (int x, int y, int range) {
@@ -29,5 +31,13 @@ public class Environnement {
 
     public void setTurtles(List<Tortue> turtles) {
         this.turtles = turtles;
+    }
+
+    public List<Obstacle> getObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(List<Obstacle> obstacles) {
+        this.obstacles = obstacles;
     }
 }

@@ -2,10 +2,7 @@ package tortue.model.agent;
 
 import tortue.model.Environnement;
 import tortue.model.Tortue;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class FlockingAgent extends BaseAgent {
 
@@ -19,13 +16,9 @@ public class FlockingAgent extends BaseAgent {
         this.setTurtles(turtles);
     }
 
-
     @Override
     public void run() {
         while (true) {
-
-            int nbTurtles = this.getTurtles().size();
-
             int averageDir = 0;
             Random rand = new Random();
 
@@ -65,10 +58,9 @@ public class FlockingAgent extends BaseAgent {
                     if (turtle.getDir() - averageDir < 0)
                         turtle.setDir(turtle.getDir() - MAX_DIR_CHANGE);
                 }
-
-
                 turtle.setDir(averageDir);
 
+                // move the turtle
                 if (flock.size() == 0)
                     turtle.avancer(TURTLE_LOW_SPEED);
                 else

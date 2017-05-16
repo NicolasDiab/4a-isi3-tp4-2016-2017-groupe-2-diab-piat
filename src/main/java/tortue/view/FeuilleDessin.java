@@ -1,5 +1,6 @@
 package tortue.view;
 
+import tortue.model.Obstacle;
 import tortue.model.Segment;
 import tortue.model.Tortue;
 
@@ -21,9 +22,11 @@ import java.util.Iterator;
 public class FeuilleDessin extends JPanel {
     private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
     private boolean showSegments;
+    private ArrayList<Obstacle> obstacles;
 
     public FeuilleDessin() {
-        tortues = new ArrayList<Tortue>();
+        tortues = new ArrayList<>();
+        obstacles = new ArrayList<>();
         this.setShowSegments(true);
     }
 
@@ -116,6 +119,10 @@ public class FeuilleDessin extends JPanel {
         arrow.addPoint(p2.x, p2.y);
         graph.setColor(tortue.decodeColor(tortue.getColor()));
         graph.fillPolygon(arrow);
+    }
+
+    public void drawObstacle(Obstacle obstacle) {
+
     }
 
     public void drawSegment(Segment segment, Graphics graph) {
