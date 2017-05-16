@@ -15,8 +15,8 @@ import java.util.Random;
 public class AgentRandom extends BaseAgent {
 
     public AgentRandom(List<Tortue> turtles) {
-        this.setTurtles(turtles);
         this.setEnvironnement(new Environnement(turtles));
+        this.setTurtles(turtles);
     }
 
 

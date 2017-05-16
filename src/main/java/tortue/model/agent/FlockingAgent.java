@@ -15,8 +15,8 @@ public class FlockingAgent extends BaseAgent {
     private final int RANGE = 80;
 
     public FlockingAgent(List<Tortue> turtles) {
-        this.setTurtles(turtles);
         this.setEnvironnement(new Environnement(turtles));
+        this.setTurtles(turtles);
     }
 
 
@@ -39,6 +39,7 @@ public class FlockingAgent extends BaseAgent {
                 // average dir
                 int averageDir = totalDir / dirCount;
 
+                turtle.setDir(averageDir);
             }
 
             try {
