@@ -7,14 +7,14 @@ public class FlockingController extends TurtleController {
 
     private FlockingAgent flockingAgent;
 
-    public FlockingController (Window window) {
+    public FlockingController(Window window) {
         super(window);
 
         // add 30 turtles
-        for (int i=0; i<15; i++)
+        for (int i = 0; i < 20; i++)
             this.addRandomTurtle();
 
-        for (int i=0; i<3; i++)
+        for (int i = 0; i < 3; i++)
             this.addRandomObstacle();
 
         this.flockingAgent = new FlockingAgent(this.getTurtles(), this.getFeuille().getObstacles());

@@ -10,9 +10,9 @@ public class FlockingAgent extends BaseAgent {
 
     private final int RANGE = 20;
     private final int MAX_DIR_CHANGE = 15;
-    private final int MAX_COLLISION_AVOIDANCE_DIR= 90;
-    private final int TURTLE_SPEED = 5;
-    private final int TURTLE_LOW_SPEED = 3;
+    private final int MAX_COLLISION_AVOIDANCE_DIR = 180;
+    private final int TURTLE_SPEED = 4;
+    private final int TURTLE_LOW_SPEED = 2;
 
     private static final double RATION_DEG_RAD = 0.0174533; // Rapport radians/degres (pour la conversion)
 
@@ -98,10 +98,8 @@ public class FlockingAgent extends BaseAgent {
 
                         if (!getEnvironnement().isOnObstacle(newX, newY)){
                             finalDir = dir;
-                            break;
                         }
                     }
-
                 }
 
                 if (finalDir == - 1000){
@@ -117,7 +115,6 @@ public class FlockingAgent extends BaseAgent {
 
                             if (!getEnvironnement().isOnObstacle(newX, newY)){
                                 finalDir = dir;
-                                break;
                             }
                         }
                     }
@@ -130,7 +127,7 @@ public class FlockingAgent extends BaseAgent {
             }
 
             try {
-                Thread.sleep(120);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

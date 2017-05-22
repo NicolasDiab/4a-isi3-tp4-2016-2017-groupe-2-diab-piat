@@ -135,7 +135,7 @@ public class FeuilleDessin extends JPanel {
 
     public void drawObstacle(Obstacle obstacle, Graphics graph) {
         graph.setColor(obstacle.decodeColor(obstacle.getColor()));
-        graph.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getSize(), obstacle.getSize());
+        graph.fillRect(obstacle.getX() - obstacle.getSize() / 2, obstacle.getY() - obstacle.getSize() / 2, obstacle.getSize(), obstacle.getSize());
     }
 
     public void drawSegment(Segment segment, Graphics graph) {
