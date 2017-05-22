@@ -11,7 +11,7 @@ public class FlockingController extends TurtleController {
         super(window);
 
         // add 30 turtles
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
             this.addRandomTurtle();
 
         for (int i = 0; i < 3; i++)
