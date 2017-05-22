@@ -68,6 +68,7 @@ public class FlockingAgent extends BaseAgent {
                 else
                     turtle.setDir(averageDir);
 
+                turtle.setDir(averageDir);
 
                 /**
                  * Choose speed
@@ -111,10 +112,9 @@ public class FlockingAgent extends BaseAgent {
                     }
                 }
 
-                if (finalDir == - 1000)
-                    turtle.setDir(averageDir);
-                else
+                if (finalDir != - 1000){
                     turtle.setDir(finalDir);
+                }
                 turtle.avancer(speed);
             }
 
