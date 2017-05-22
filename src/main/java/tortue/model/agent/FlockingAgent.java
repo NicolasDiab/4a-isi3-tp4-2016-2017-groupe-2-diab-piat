@@ -98,7 +98,6 @@ public class FlockingAgent extends BaseAgent {
 
                         if (!getEnvironnement().isOnObstacle(newX, newY)){
                             finalDir = dir;
-                            break;
                         }
                     }
 
@@ -117,7 +116,6 @@ public class FlockingAgent extends BaseAgent {
 
                             if (!getEnvironnement().isOnObstacle(newX, newY)){
                                 finalDir = dir;
-                                break;
                             }
                         }
                     }
