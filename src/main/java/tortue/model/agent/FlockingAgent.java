@@ -29,7 +29,10 @@ public class FlockingAgent extends BaseAgent {
             Random rand = new Random();
 
             for (Tortue turtle : this.getTurtles()) {
-                // neighbours turtles
+
+                /**
+                 * Get turtle's neighbourhood
+                 */
                 List<Tortue> flock = this.getEnvironnement().getTurtlesInRange(turtle.getX(), turtle.getY(), this.RANGE);
 
                 /**
