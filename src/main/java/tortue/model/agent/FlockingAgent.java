@@ -39,20 +39,6 @@ public class FlockingAgent extends BaseAgent {
                         .mapToInt(t -> t.getDir())
                         .average().getAsDouble()));
 
-                //for (Tortue item : flock){
-//
-                //    int minRangeX = item.getX() - 4;
-                //    int maxRangeX = item.getX() + 4;
-                //    int minRangeY = item.getY() - 4;
-                //    int maxRangeY = item.getY() + 4;
-//
-                //    if (turtle.getX() > minRangeX && turtle.getX() < maxRangeX)
-                //        turtle.setDir(averageDir + rand.nextInt(5));
-//
-                //    if (turtle.getY() > minRangeY && turtle.getY() < maxRangeY)
-                //        turtle.setDir(averageDir + rand.nextInt(5));
-                //}
-
 
                 /**
                  * Set a maximum of dir change to 30 degrees
@@ -127,7 +113,7 @@ public class FlockingAgent extends BaseAgent {
             }
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(80);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
