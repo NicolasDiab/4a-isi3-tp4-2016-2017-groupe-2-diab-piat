@@ -69,17 +69,17 @@ public class FlockingAgent extends BaseAgent {
                     speed = TURTLE_SPEED;
 
                 /**
-                 * Check if a collision will occur
+                 * Check if a collision will occur beginning by right or left randomly
                  */
-                int finalDir = this.changeDirObstacle(true, speed, turtle);
+                boolean rightOrLeft = rand.nextBoolean();
+                int finalDir = this.changeDirObstacle(rightOrLeft, speed, turtle);
 
-                if (finalDir == - 1000){
-                    finalDir = this.changeDirObstacle(false, speed, turtle);
-                }
+                if (finalDir == - 1000)
+                    finalDir = this.changeDirObstacle(!rightOrLeft, speed, turtle);
 
-                if (finalDir != - 1000){
+                if (finalDir != - 1000)
                     turtle.setDir(finalDir);
-                }
+
                 turtle.avancer(speed);
             }
 
