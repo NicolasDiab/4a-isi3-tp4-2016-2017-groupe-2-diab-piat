@@ -29,7 +29,10 @@ public class FlockingAgent extends BaseAgent {
             Random rand = new Random();
 
             for (Tortue turtle : this.getTurtles()) {
-                // neighbours turtles
+
+                /**
+                 * Get turtle's neighbourhood
+                 */
                 List<Tortue> flock = this.getEnvironnement().getTurtlesInRange(turtle.getX(), turtle.getY(), this.RANGE);
 
                 /**
@@ -38,20 +41,6 @@ public class FlockingAgent extends BaseAgent {
                 averageDir = (((int) flock.stream()
                         .mapToInt(t -> t.getDir())
                         .average().getAsDouble()));
-
-                //for (Tortue item : flock){
-//
-                //    int minRangeX = item.getX() - 4;
-                //    int maxRangeX = item.getX() + 4;
-                //    int minRangeY = item.getY() - 4;
-                //    int maxRangeY = item.getY() + 4;
-//
-                //    if (turtle.getX() > minRangeX && turtle.getX() < maxRangeX)
-                //        turtle.setDir(averageDir + rand.nextInt(5));
-//
-                //    if (turtle.getY() > minRangeY && turtle.getY() < maxRangeY)
-                //        turtle.setDir(averageDir + rand.nextInt(5));
-                //}
 
 
                 /**
@@ -95,7 +84,7 @@ public class FlockingAgent extends BaseAgent {
             }
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(80);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
