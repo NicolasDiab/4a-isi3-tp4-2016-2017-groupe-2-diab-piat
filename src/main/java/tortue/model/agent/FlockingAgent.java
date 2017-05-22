@@ -91,11 +91,17 @@ public class FlockingAgent extends BaseAgent {
                 while (getEnvironnement().isOnObstacle(newX, newY) && offset <= MAX_COLLISION_AVOIDANCE_DIR){
                     offset += rand.nextInt(5);
                     dir = turtle.getDir() + offset;
-                    newX = turtle.getFutureX(speed, dir);
-                    newY = turtle.getFutureY(speed, dir);
 
-                    if (!getEnvironnement().isOnObstacle(newX, newY))
-                        finalDir = dir;
+                    for (int i = 0; i <= speed; ++i){
+                        newX = turtle.getFutureX(i, dir);
+                        newY = turtle.getFutureY(i, dir);
+
+                        if (!getEnvironnement().isOnObstacle(newX, newY)){
+                            finalDir = dir;
+                            break;
+                        }
+                    }
+
                 }
 
                 if (finalDir == - 1000){
@@ -104,11 +110,16 @@ public class FlockingAgent extends BaseAgent {
                     while (getEnvironnement().isOnObstacle(newX, newY) && offset >= - MAX_COLLISION_AVOIDANCE_DIR){
                         offset += rand.nextInt(5);
                         dir = turtle.getDir() - offset;
-                        newX = turtle.getFutureX(speed, dir);
-                        newY = turtle.getFutureY(speed, dir);
 
-                        if (!getEnvironnement().isOnObstacle(newX, newY))
-                            finalDir = dir;
+                        for (int i = 0; i <= speed; ++i){
+                            newX = turtle.getFutureX(i, dir);
+                            newY = turtle.getFutureY(i, dir);
+
+                            if (!getEnvironnement().isOnObstacle(newX, newY)){
+                                finalDir = dir;
+                                break;
+                            }
+                        }
                     }
                 }
 
@@ -119,7 +130,7 @@ public class FlockingAgent extends BaseAgent {
             }
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(120);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
