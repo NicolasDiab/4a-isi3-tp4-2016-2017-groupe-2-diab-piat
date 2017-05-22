@@ -82,42 +82,10 @@ public class FlockingAgent extends BaseAgent {
                 /**
                  * Check if a collision will occur
                  */
-                int dir = turtle.getDir();
-                int offset = 0;
-                int newX = turtle.getFutureX(speed, dir);
-                int newY = turtle.getFutureY(speed, dir);
-                int finalDir = - 1000;
-
-                while (getEnvironnement().isOnObstacle(newX, newY) && offset <= MAX_COLLISION_AVOIDANCE_DIR){
-                    offset += rand.nextInt(5);
-                    dir = turtle.getDir() + offset;
-
-                    for (int i = 0; i <= speed; ++i){
-                        newX = turtle.getFutureX(i, dir);
-                        newY = turtle.getFutureY(i, dir);
-
-                        if (!getEnvironnement().isOnObstacle(newX, newY)){
-                            finalDir = dir;
-                        }
-                    }
-                }
+                int finalDir = this.changeDirObstacle(true, speed, turtle);
 
                 if (finalDir == - 1000){
-                    offset = 0;
-
-                    while (getEnvironnement().isOnObstacle(newX, newY) && offset >= - MAX_COLLISION_AVOIDANCE_DIR){
-                        offset += rand.nextInt(5);
-                        dir = turtle.getDir() - offset;
-
-                        for (int i = 0; i <= speed; ++i){
-                            newX = turtle.getFutureX(i, dir);
-                            newY = turtle.getFutureY(i, dir);
-
-                            if (!getEnvironnement().isOnObstacle(newX, newY)){
-                                finalDir = dir;
-                            }
-                        }
-                    }
+                    finalDir = this.changeDirObstacle(false, speed, turtle);
                 }
 
                 if (finalDir != - 1000){
@@ -132,5 +100,32 @@ public class FlockingAgent extends BaseAgent {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int changeDirObstacle(boolean right, int speed, Tortue turtle) {
+        int offset = 0;
+        int dir = turtle.getDir();
+        int newX = turtle.getFutureX(speed, dir);
+        int newY = turtle.getFutureY(speed, dir);
+        int finalDir = - 1000;
+        Random rand = new Random();
+
+        while (getEnvironnement().isOnObstacle(newX, newY) &&
+                ((right && offset <= MAX_COLLISION_AVOIDANCE_DIR) ||
+                (!right && offset >= - MAX_COLLISION_AVOIDANCE_DIR))) {
+            offset += rand.nextInt(5);
+            dir = right ? turtle.getDir() + offset : turtle.getDir() - offset;
+
+            for (int i = 0; i <= speed; ++i){
+                newX = turtle.getFutureX(i, dir);
+                newY = turtle.getFutureY(i, dir);
+
+                if (!getEnvironnement().isOnObstacle(newX, newY)){
+                    finalDir = dir;
+                }
+            }
+        }
+
+        return finalDir;
     }
 }

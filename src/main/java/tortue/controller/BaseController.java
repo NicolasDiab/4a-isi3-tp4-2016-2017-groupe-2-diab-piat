@@ -82,7 +82,6 @@ public abstract class BaseController implements ActionListener, Observer {
         int y = rand.nextInt(399);
         int dir = rand.nextInt(359);
         int col = rand.nextInt(11);
-        System.out.println("x "+x + " y "+ y + " dir "+ dir);
         return this.addTurtle(x, y, dir, col);
     }
 
