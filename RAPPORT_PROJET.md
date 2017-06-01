@@ -18,6 +18,7 @@ Cet algorithme fonctionne de la manière suivante
  * Itération sur chaque tortue
  * Recherche de toutes les tortues dans un espace de x pixels autour de la tortue courante
  * Calcul de la direction moyenne de toutes les tortues de l'espace
- * Assignation de la direction moyenne à la tortue courrante
+ * Assignation de la direction moyenne à la tortue courrante (dans la limite de MAX_COLLISION_AVOIDANCE_DIR)
+ * Assignation de la vitesse TURTLE_LOW_SPEED si la tortue n'a pas de voisin et TURTLE_SPEED si la tortue appartient à un groupe
 
 ## Algorithme d'évitement d'obstacle
