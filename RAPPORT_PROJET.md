@@ -7,7 +7,7 @@
 
 ## Structure
 Voici ci-dessous un aperçu de notre diagramme de classe sur lequel n'apparaissent que les entités sans leurs attributs et fonctions.
-![diagram](images/ClassDiagram.png)
+![diagram](/master/images/ClassdDiagram.png)
 
 ## Pattern observer
 
