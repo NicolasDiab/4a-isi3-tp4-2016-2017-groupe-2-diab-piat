@@ -12,5 +12,12 @@ Voici ci-dessous un aperçu de notre diagramme de classe sur lequel n'apparaisse
 ## Pattern observer
 
 ## Algorithme de flocking
+Notre algorithme de flocking est disponible dans la classe [FlockingAgent.java](/src/main/java/tortue/model/agent/FlockingAgent.java).
+
+Cet algorithme fonctionne de la manière suivante
+ * Itération sur chaque tortue
+ * Recherche de toutes les tortues dans un espace de x pixels autour de la tortue courante
+ * Calcul de la direction moyenne de toutes les tortues de l'espace
+ * Assignation de la direction moyenne à la tortue courrante
 
 ## Algorithme d'évitement d'obstacle
